@@ -14,7 +14,7 @@ Non-obvious decisions, in the order they were made. (Draft: numbers are filled i
 
 6. **"Escalate" means a human must review before anything is posted publicly.** A reply asking the customer to DM counts as auto-handleable for routine issues, because that is exactly what the brand does and a human picks it up in DMs anyway.
 
-7. **Layered, explainable escalation**: keyword rules → always-escalate intents → low classifier confidence → the LLM's risk judgement → a check that the draft doesn't promise refunds, credits or timelines. Each escalation records every layer that fired, so failures can be attributed to a layer.
+7. **Layered, explainable escalation**: keyword rules → always-escalate intents → low classifier confidence → a second-opinion classifier → the LLM's risk judgement → checks that the draft doesn't promise refunds, credits or timelines, or claim an action the agent can't take. Each escalation records every layer that fired, so failures can be attributed to a layer. **Two layers were added after the dev run, and chosen on dev only:** the LLM reported confidence ≥ 0.92 on 48 of 50 dev tweets, so "low confidence" could never catch its mistakes. Where an independent TF-IDF classifier disagreed with the LLM's intent, the failure rate doubled (52% vs 24%), so disagreement now escalates. Priced with the cost model on dev, this cut the cost from 154 to 94 per 100 tickets and raised escalation recall from 77% to 92%, at the price of escalating 54% of tweets instead of 22%.
 
 8. **TF-IDF retrieval instead of embeddings.** No extra API, GPU or rate limit; deterministic; fast; and the evaluation reproduces offline. Semantic misses are a known weakness, noted in failure analysis.
 
