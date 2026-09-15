@@ -87,7 +87,7 @@
       "confidence": 0.92,
       "should_escalate": true,
       "escalation_reason": "high_frustration",
-      "escalation_reasons": "llm:high_frustration",
+      "escalation_reasons": "second_opinion:feature_feedback;llm:high_frustration",
       "reply": "Hey there! We're here to help. Could you send us a DM with a bit more detail about what's going on? We'll take a look and get back to you.",
       "judge_overall": 4,
       "judge_rationale": "The reply asks for more detail via DM, a suitable response to the vague complaint."
@@ -101,7 +101,7 @@
       "confidence": 0.95,
       "should_escalate": false,
       "escalation_reason": "none",
-      "escalation_reasons": "",
+      "escalation_reasons": "second_opinion:thanks_resolved",
       "reply": "We hear you! We'll make sure to pass on your feedback to the right folks. Stay tuned for updates at <url>",
       "judge_overall": 4,
       "judge_rationale": "The reply acknowledges the request for the song, promises to pass feedback, and provides a link for updates\u2014appropriate and on\u2011brand."
@@ -115,7 +115,7 @@
       "confidence": 0.93,
       "should_escalate": false,
       "escalation_reason": "none",
-      "escalation_reasons": "",
+      "escalation_reasons": "second_opinion:playback_technical",
       "reply": "Hey! Our Curation team are independent & use taste, data, research, and trends to create playlists, but we\u2019ll pass on your suggestion \ud83d\ude42",
       "judge_overall": 5,
       "judge_rationale": "The reply mirrors the reference response, politely declines the suggestion, and stays on\u2011brand."
@@ -129,7 +129,7 @@
       "confidence": 0.94,
       "should_escalate": true,
       "escalation_reason": "payment_dispute",
-      "escalation_reasons": "llm:high_frustration",
+      "escalation_reasons": "llm:high_frustration;draft_claims_action",
       "reply": "Hey! We don't have phone support, but we can help here. Since this needs account details, we just sent you a DM. Please check your inbox so we can look into your login issue.",
       "judge_overall": 3,
       "judge_rationale": "The reply claims a DM was sent, which hasn't happened, introducing false information; it partially addresses the issue."
@@ -143,7 +143,7 @@
       "confidence": 0.94,
       "should_escalate": true,
       "escalation_reason": "needs_investigation",
-      "escalation_reasons": "",
+      "escalation_reasons": "second_opinion:feature_feedback",
       "reply": "We're sorry to hear that. Could you DM us the specific playlist or track URI? We'll take a look and see what we can do.",
       "judge_overall": 2,
       "judge_rationale": "The reply asks for a DM but does not acknowledge the offensive content or offer empathy."
@@ -171,7 +171,7 @@
       "confidence": 0.93,
       "should_escalate": false,
       "escalation_reason": "none",
-      "escalation_reasons": "policy_intent:account_security;llm:account_security",
+      "escalation_reasons": "policy_intent:account_security;second_opinion:dm_followup;llm:account_security;draft_claims_action",
       "reply": "Hey! We've just sent a DM your way. Let's carry on chatting there",
       "judge_overall": 5,
       "judge_rationale": "The reply exactly matches the reference, correctly moves the conversation to DM."
@@ -185,7 +185,7 @@
       "confidence": 0.97,
       "should_escalate": false,
       "escalation_reason": "none",
-      "escalation_reasons": "",
+      "escalation_reasons": "second_opinion:feature_feedback",
       "reply": "Anytime! Let us know how it goes. We'd be happy to help if you need anything else. <url>",
       "judge_overall": 4,
       "judge_rationale": "Politely acknowledges the user\u2019s thanks and invites further contact, staying on brand."
@@ -199,7 +199,7 @@
       "confidence": 0.96,
       "should_escalate": false,
       "escalation_reason": "none",
-      "escalation_reasons": "",
+      "escalation_reasons": "second_opinion:playback_technical",
       "reply": "Hey! We understand the frustration with the aspect ratio. We don't have specific info to share right now, but hopefully it'll be updated soon. Let us know if there's anything else we can help with!",
       "judge_overall": 2,
       "judge_rationale": "The reply acknowledges frustration but offers no concrete help or request for details, making it unhelpful."
@@ -301,12 +301,12 @@
     },
     {
       "escalation_reason": "needs_investigation",
-      "rate": 0.0,
+      "rate": 1.0,
       "n": 1
     },
     {
       "escalation_reason": "payment_dispute",
-      "rate": 0.8,
+      "rate": 1.0,
       "n": 5
     },
     {
@@ -316,27 +316,11 @@
     }
   ],
   "missed_escalations": {
-    "count": 3,
+    "count": 1,
     "by_gold_reason": {
-      "needs_investigation": 1,
-      "account_security": 1,
-      "payment_dispute": 1
+      "account_security": 1
     },
     "examples": [
-      {
-        "conv_id": "699533",
-        "customer_text": "how the fuck is possible that i see track lists adoring Charles Manson? i cannot even disable them. This is super disgusting",
-        "context": "",
-        "intent": "feature_feedback",
-        "pred_intent": "content_catalog",
-        "confidence": 0.94,
-        "should_escalate": true,
-        "escalation_reason": "needs_investigation",
-        "escalation_reasons": "",
-        "reply": "We're sorry to hear that. Could you DM us the specific playlist or track URI? We'll take a look and see what we can do.",
-        "judge_overall": 2,
-        "judge_rationale": "The reply asks for a DM but does not acknowledge the offensive content or offer empathy."
-      },
       {
         "conv_id": "669353",
         "customer_text": "@user I reset my iPhone with iOS 11.1.2 and when I downloaded fresh Spotify app tried to log in, nothing happened when I hit the \u2018log in\u2019 or \u2018create account\u2019 button. Before it worked just fine. I have premium account and paying for it. Please provide solution.",
@@ -350,44 +334,88 @@
         "reply": "Got it! Since you just reset, try restarting your iPhone by holding Sleep/Wake + Volume Down for 10 seconds. If that doesn't work, please DM us your account email so we can take a closer look.",
         "judge_overall": 4,
         "judge_rationale": "The reply gives a practical restart step and then requests a DM with the account email, directly addressing the login problem."
-      },
-      {
-        "conv_id": "506012",
-        "customer_text": "i live in canada but I'm paying in my home country in euros. It's both 9.99/month but let's be honest here...9.99 euros aint the same as 9.99 CAD. Can you help me change account settings?",
-        "context": "",
-        "intent": "billing_subscription",
-        "pred_intent": "billing_subscription",
-        "confidence": 0.96,
-        "should_escalate": true,
-        "escalation_reason": "payment_dispute",
-        "escalation_reasons": "",
-        "reply": "Hey! We hear you. Can you DM us your account's email address or username? We'll take a look backstage",
-        "judge_overall": 5,
-        "judge_rationale": "Asks for DM with account info, directly addresses request, matches reference tone."
       }
     ]
   },
   "unneeded_escalations": {
-    "count": 1,
+    "count": 15,
     "layers_fired": {
+      "second_opinion": 14,
+      "draft_claims_action": 2,
       "llm": 1,
       "policy_intent": 1
     },
     "only_low_confidence": 0,
     "examples": [
       {
-        "conv_id": "507415",
-        "customer_text": "yo, DM'd you some details but I need help getting my account back.",
+        "conv_id": "2942695",
+        "customer_text": "I\u2019m listening to Spotify and this is what\u2019s on my phone. Idk if it\u2019s your end or Apple\u2019s but i just wanted you to be aware. Thanks! <url>",
         "context": "",
-        "intent": "dm_followup",
-        "pred_intent": "account_security",
+        "intent": "playback_technical",
+        "pred_intent": "playback_technical",
+        "confidence": 0.78,
+        "should_escalate": false,
+        "escalation_reason": "none",
+        "escalation_reasons": "second_opinion:thanks_resolved",
+        "reply": "Thanks for flagging this! To help us investigate, could you send us a DM with your account username or email? We'll take a look backstage. \ud83c\udfa7",
+        "judge_overall": 4,
+        "judge_rationale": "The reply asks for needed details via DM, matching the reference style and staying on\u2011brand."
+      },
+      {
+        "conv_id": "466824",
+        "customer_text": "@user can you put Miss You already thank you I'm dying",
+        "context": "",
+        "intent": "content_catalog",
+        "pred_intent": "other",
+        "confidence": 0.95,
+        "should_escalate": false,
+        "escalation_reason": "none",
+        "escalation_reasons": "second_opinion:thanks_resolved",
+        "reply": "We hear you! We'll make sure to pass on your feedback to the right folks. Stay tuned for updates at <url>",
+        "judge_overall": 4,
+        "judge_rationale": "The reply acknowledges the request for the song, promises to pass feedback, and provides a link for updates\u2014appropriate and on\u2011brand."
+      },
+      {
+        "conv_id": "450893",
+        "customer_text": "Add \u201cPirates\u201d to the This is: @user playlist RIGHT NOW!!!!",
+        "context": "",
+        "intent": "content_catalog",
+        "pred_intent": "feature_feedback",
         "confidence": 0.93,
         "should_escalate": false,
         "escalation_reason": "none",
-        "escalation_reasons": "policy_intent:account_security;llm:account_security",
-        "reply": "Hey! We've just sent a DM your way. Let's carry on chatting there",
+        "escalation_reasons": "second_opinion:playback_technical",
+        "reply": "Hey! Our Curation team are independent & use taste, data, research, and trends to create playlists, but we\u2019ll pass on your suggestion \ud83d\ude42",
         "judge_overall": 5,
-        "judge_rationale": "The reply exactly matches the reference, correctly moves the conversation to DM."
+        "judge_rationale": "The reply mirrors the reference response, politely declines the suggestion, and stays on\u2011brand."
+      },
+      {
+        "conv_id": "534619",
+        "customer_text": "@user @user I don't know what's wrong with it. I can't listen to it and I see some people can't do it too.",
+        "context": "Customer: <url>\r\nCustomer: But unfortunately it doesn't work for me. It says \"Sorry, couldn't find that\". Maybe it's not available worldwide. please could you fix it? I wanna listen to this interview\r\nSpotifyCares: Hey there! There might be some restrictions based on your current location, but not your Spotify account\u2019s country. No worries, your feedback matters, and we'll have this passed on to the right folks. Let us know if you have more questions \ud83d\ude42\r\nCustomer: why it's not available worldwide ... @user is a global superstar lol #sad",
+        "intent": "content_catalog",
+        "pred_intent": "content_catalog",
+        "confidence": 0.95,
+        "should_escalate": false,
+        "escalation_reason": "none",
+        "escalation_reasons": "second_opinion:playback_technical",
+        "reply": "Hey! We're sorry you're having trouble. Could you DM us your account's username or email? We'll take a look backstage to see what's going on.",
+        "judge_overall": 3,
+        "judge_rationale": "Asks for a DM to investigate, which is a standard step, but doesn\u2019t directly explain the restriction issue."
+      },
+      {
+        "conv_id": "620378",
+        "customer_text": "Said songs /albums are all free and easily available on every famous streaming service like Saavn, YouTube etc. Also on some mp3 songs websites",
+        "context": "Customer: How to request a song / album (origional album or artist) to upload in your library which is still not there . Please let me know via direct message or send me link. Waiting reply.\r\nSpotifyCares: Hi Adeel. Can you tell us more about the song or album you're referring to? We'll take a look backstage\r\nCustomer: Following all song of: Singer. Kumar Sanu Movie. Aashiqui Song. Dheere dheere se meri (all songs) &amp; Movie. Sapne Sajan Ke Song. Yeh dua hai meri &amp; Movie. Gunda Mawali Song. Raju Awara Above mentioned songs are very famous. Plz upload and let me know. Regards\r\nSpotifyCares: Thanks for sending those over. We\u2019d love to have all of Kumar Sanu's stuff available, but we have some info about content here: <url>",
+        "intent": "content_catalog",
+        "pred_intent": "content_catalog",
+        "confidence": 0.97,
+        "should_escalate": false,
+        "escalation_reason": "none",
+        "escalation_reasons": "second_opinion:playback_technical",
+        "reply": "We hear you! Availability depends on agreements with content providers, which can vary by region. We do our best to get everything on the platform, but sometimes deals are still ongoing. Hope this helps clarify things \ud83d\ude42",
+        "judge_overall": 4,
+        "judge_rationale": "Provides a standard explanation about content availability, which fits the query and contains no false claims."
       }
     ]
   },
@@ -451,7 +479,7 @@
         "confidence": 0.94,
         "should_escalate": true,
         "escalation_reason": "needs_investigation",
-        "escalation_reasons": "",
+        "escalation_reasons": "second_opinion:feature_feedback",
         "reply": "We're sorry to hear that. Could you DM us the specific playlist or track URI? We'll take a look and see what we can do.",
         "judge_overall": 2,
         "judge_rationale": "The reply asks for a DM but does not acknowledge the offensive content or offer empathy."
@@ -465,7 +493,7 @@
         "confidence": 0.96,
         "should_escalate": false,
         "escalation_reason": "none",
-        "escalation_reasons": "",
+        "escalation_reasons": "second_opinion:playback_technical",
         "reply": "Hey! We understand the frustration with the aspect ratio. We don't have specific info to share right now, but hopefully it'll be updated soon. Let us know if there's anything else we can help with!",
         "judge_overall": 2,
         "judge_rationale": "The reply acknowledges frustration but offers no concrete help or request for details, making it unhelpful."
@@ -479,7 +507,7 @@
         "confidence": 0.94,
         "should_escalate": true,
         "escalation_reason": "payment_dispute",
-        "escalation_reasons": "llm:high_frustration",
+        "escalation_reasons": "llm:high_frustration;draft_claims_action",
         "reply": "Hey! We don't have phone support, but we can help here. Since this needs account details, we just sent you a DM. Please check your inbox so we can look into your login issue.",
         "judge_overall": 3,
         "judge_rationale": "The reply claims a DM was sent, which hasn't happened, introducing false information; it partially addresses the issue."
@@ -493,7 +521,7 @@
         "confidence": 0.95,
         "should_escalate": false,
         "escalation_reason": "none",
-        "escalation_reasons": "",
+        "escalation_reasons": "second_opinion:playback_technical",
         "reply": "Hey! We're sorry you're having trouble. Could you DM us your account's username or email? We'll take a look backstage to see what's going on.",
         "judge_overall": 3,
         "judge_rationale": "Asks for a DM to investigate, which is a standard step, but doesn\u2019t directly explain the restriction issue."
@@ -507,7 +535,7 @@
         "confidence": 0.97,
         "should_escalate": false,
         "escalation_reason": "none",
-        "escalation_reasons": "",
+        "escalation_reasons": "second_opinion:playback_technical",
         "reply": "Hey! We usually have a mix of albums, singles, and sometimes older releases. If you're missing specific tracks, could you send us your account's email via DM? We'll take a look under the hood",
         "judge_overall": 3,
         "judge_rationale": "The reply is vague about mixtapes and unnecessarily asks for personal info, missing the core answer."

@@ -1,6 +1,6 @@
 import pytest
 
-from agent import COMMITMENT_RE, ESCALATION_RULES, SupportAgent, format_thread
+from agent import CLAIMED_ACTION_RE, COMMITMENT_RE, ESCALATION_RULES, SupportAgent, format_thread
 
 
 def test_thread_formatting_ignores_line_ending_style():
@@ -42,9 +42,21 @@ def test_confident_routine_message_is_auto_handled():
 
 def test_each_escalation_layer_adds_its_reason():
     analysis = {"intent": "account_security", "confidence": 0.3, "escalate": True, "escalation_reason": "high_frustration"}
-    reasons = make_agent().decide("I was hacked", analysis, "We'll refund you")
+    reasons = make_agent().decide("I was hacked", analysis, "We'll refund you, we've just sent you a DM",
+                                  second_opinion="account_access")
     assert reasons == ["rule:account_security", "policy_intent:account_security", "low_confidence",
-                       "llm:high_frustration", "draft_commitment_or_empty"]
+                       "second_opinion:account_access", "llm:high_frustration", "draft_commitment_or_empty",
+                       "draft_claims_action"]
+
+
+def test_second_opinion_agreement_adds_nothing():
+    analysis = {"intent": "playback_technical", "confidence": 0.95, "escalate": False, "escalation_reason": "none"}
+    assert make_agent().decide("songs skip", analysis, "Try reinstalling", second_opinion="playback_technical") == []
+
+
+def test_claimed_action_detector():
+    assert CLAIMED_ACTION_RE.search("Hey! We've just sent a DM your way")
+    assert not CLAIMED_ACTION_RE.search("Can you send us a DM with your email?")
 
 
 def test_commitment_detector():

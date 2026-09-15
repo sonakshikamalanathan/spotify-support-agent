@@ -8,8 +8,9 @@ Each candidate is also assigned to dev (prompt/threshold tuning) or test (report
 """
 import pandas as pd
 
-from baselines import keyword_escalation, train_weak_label_classifier
+from baselines import keyword_escalation
 from config import LABELS_DIR, PAIRS_CSV, SEED
+from weak_classifier import train_weak_label_classifier
 
 N_RANDOM, N_BALANCED, N_HARD = 90, 80, 40
 N_DEV = 50

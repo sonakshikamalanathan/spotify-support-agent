@@ -169,16 +169,16 @@
       0.7655379026610645
     ],
     "escalation": {
-      "precision": 0.9090909090909091,
-      "recall": 0.7692307692307693,
-      "f2": 0.7936507936507936,
-      "escalation_rate": 0.22,
-      "missed_escalations": 3,
-      "unneeded_escalations": 1
+      "precision": 0.4444444444444444,
+      "recall": 0.9230769230769231,
+      "f2": 0.759493670886076,
+      "escalation_rate": 0.54,
+      "missed_escalations": 1,
+      "unneeded_escalations": 15
     },
     "escalation_recall_ci": [
-      0.7692307692307693,
-      0.5,
+      0.9230769230769231,
+      0.75,
       1.0
     ],
     "reply_acceptable": [
@@ -189,11 +189,11 @@
     "reply_overall_mean": 4.1,
     "hallucination_rate": 0.02,
     "safe_automation_rate": [
-      0.48,
       0.34,
-      0.62
+      0.22,
+      0.48
     ],
-    "unsafe_automation_rate": 0.06,
+    "unsafe_automation_rate": 0.02,
     "random_stratum_only": {
       "n": 19,
       "intent_accuracy": [
@@ -207,12 +207,12 @@
         0.8587142857142855
       ],
       "escalation": {
-        "precision": 1.0,
+        "precision": 0.3,
         "recall": 0.75,
-        "f2": 0.7894736842105263,
-        "escalation_rate": 0.15789473684210525,
+        "f2": 0.5769230769230769,
+        "escalation_rate": 0.5263157894736842,
         "missed_escalations": 1,
-        "unneeded_escalations": 0
+        "unneeded_escalations": 7
       },
       "escalation_recall_ci": [
         0.75,
@@ -227,9 +227,9 @@
       "reply_overall_mean": 3.8947368421052633,
       "hallucination_rate": 0.0,
       "safe_automation_rate": [
-        0.42105263157894735,
-        0.21052631578947367,
-        0.631578947368421
+        0.2631578947368421,
+        0.10526315789473684,
+        0.47368421052631576
       ],
       "unsafe_automation_rate": 0.05263157894736842
     }
@@ -237,123 +237,123 @@
   "automation_dial": [
     {
       "threshold": 0.0,
-      "automation_rate": 0.78,
-      "error_rate_among_auto": 0.38461538461538464,
-      "unsafe_auto_rate": 0.06
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.05,
-      "automation_rate": 0.78,
-      "error_rate_among_auto": 0.38461538461538464,
-      "unsafe_auto_rate": 0.06
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.1,
-      "automation_rate": 0.78,
-      "error_rate_among_auto": 0.38461538461538464,
-      "unsafe_auto_rate": 0.06
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.15,
-      "automation_rate": 0.78,
-      "error_rate_among_auto": 0.38461538461538464,
-      "unsafe_auto_rate": 0.06
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.2,
-      "automation_rate": 0.78,
-      "error_rate_among_auto": 0.38461538461538464,
-      "unsafe_auto_rate": 0.06
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.25,
-      "automation_rate": 0.78,
-      "error_rate_among_auto": 0.38461538461538464,
-      "unsafe_auto_rate": 0.06
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.3,
-      "automation_rate": 0.78,
-      "error_rate_among_auto": 0.38461538461538464,
-      "unsafe_auto_rate": 0.06
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.35,
-      "automation_rate": 0.78,
-      "error_rate_among_auto": 0.38461538461538464,
-      "unsafe_auto_rate": 0.06
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.4,
-      "automation_rate": 0.78,
-      "error_rate_among_auto": 0.38461538461538464,
-      "unsafe_auto_rate": 0.06
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.45,
-      "automation_rate": 0.78,
-      "error_rate_among_auto": 0.38461538461538464,
-      "unsafe_auto_rate": 0.06
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.5,
-      "automation_rate": 0.78,
-      "error_rate_among_auto": 0.38461538461538464,
-      "unsafe_auto_rate": 0.06
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.55,
-      "automation_rate": 0.78,
-      "error_rate_among_auto": 0.38461538461538464,
-      "unsafe_auto_rate": 0.06
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.6,
-      "automation_rate": 0.78,
-      "error_rate_among_auto": 0.38461538461538464,
-      "unsafe_auto_rate": 0.06
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.65,
-      "automation_rate": 0.78,
-      "error_rate_among_auto": 0.38461538461538464,
-      "unsafe_auto_rate": 0.06
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.7,
-      "automation_rate": 0.78,
-      "error_rate_among_auto": 0.38461538461538464,
-      "unsafe_auto_rate": 0.06
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.75,
-      "automation_rate": 0.78,
-      "error_rate_among_auto": 0.38461538461538464,
-      "unsafe_auto_rate": 0.06
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.8,
-      "automation_rate": 0.74,
-      "error_rate_among_auto": 0.3783783783783784,
-      "unsafe_auto_rate": 0.06
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.85,
-      "automation_rate": 0.74,
-      "error_rate_among_auto": 0.3783783783783784,
-      "unsafe_auto_rate": 0.06
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.9,
-      "automation_rate": 0.74,
-      "error_rate_among_auto": 0.3783783783783784,
-      "unsafe_auto_rate": 0.06
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.95,
-      "automation_rate": 0.68,
-      "error_rate_among_auto": 0.35294117647058826,
-      "unsafe_auto_rate": 0.04
+      "automation_rate": 0.46,
+      "error_rate_among_auto": 0.2608695652173913,
+      "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 1.0,

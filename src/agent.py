@@ -5,8 +5,10 @@ Escalation is layered so that each decision is explainable:
   1. deterministic rules on the message (safety, security, payments, legal)
   2. intents that policy always routes to a human
   3. low classifier confidence
-  4. the LLM's own risk judgement
-  5. the drafted reply making a commitment we cannot verify (refund, credit, timeline)
+  4. a second-opinion classifier (TF-IDF on weak labels) disagreeing with the LLM's intent
+  5. the LLM's own risk judgement
+  6. the drafted reply making a commitment we cannot verify (refund, credit, timeline),
+     or claiming an action the agent cannot take ("we've sent you a DM")
 """
 import json
 import re
@@ -17,6 +19,7 @@ from sklearn.metrics.pairwise import linear_kernel
 
 from config import ANALYSER, BRAND, DRAFTER, LABELS_DIR
 from llm import LLM
+from weak_classifier import train_weak_label_classifier
 
 CODEBOOK_PATH = LABELS_DIR / "codebook.json"
 CONFIDENCE_THRESHOLD = 0.6
@@ -29,6 +32,8 @@ ESCALATION_RULES = [
     ("privacy_legal", re.compile(r"\blawyer|\bsu(e|ing)\b|legal action|\bgdpr\b|data protection|consumer (rights|protection)|trading standards|ombudsman|\bbbb\b|__email__|card number", re.I)),
     ("safety_wellbeing", re.compile(r"suicid|kill (myself|me)|self[- ]harm|want to die|threat(en)?|harass", re.I)),
 ]
+# The agent cannot send DMs or take account actions, so a draft claiming it did is false.
+CLAIMED_ACTION_RE = re.compile(r"\b(?:we've|we have|we just)\s+(?:just\s+)?(?:sent|replied|dm'?d|messaged)", re.I)
 COMMITMENT_RE = re.compile(r"\brefund|credit (your|to your)|compensat|free (month|premium|trial)|we('ll| will) (fix|refund|credit|reimburse)|within \d+ (hours|days)", re.I)
 
 
@@ -122,6 +127,7 @@ class SupportAgent:
         self.escalate_intents = set(self.codebook.get("always_escalate_intents", []))
         self.threshold = confidence_threshold
         self.retriever = Retriever(history)
+        self.second_opinion = train_weak_label_classifier(history)
         self.analyser = LLM(ANALYSER["provider"], ANALYSER["model"], cache_name="analyser")
         self.drafter = LLM(DRAFTER["provider"], DRAFTER["model"], cache_name="drafter")
 
@@ -143,26 +149,34 @@ class SupportAgent:
                  if isinstance(e, str) and e[1:].isdigit() and 0 < int(e[1:]) <= len(examples)]
         return str(result.get("reply", "")).strip(), cited
 
-    def decide(self, message, analysis, reply):
+    def decide(self, message, analysis, reply, second_opinion=None):
         reasons = [f"rule:{rid}" for rid, pattern in ESCALATION_RULES if pattern.search(message)]
         if analysis["intent"] in self.escalate_intents:
             reasons.append(f"policy_intent:{analysis['intent']}")
         if analysis["confidence"] < self.threshold:
             reasons.append("low_confidence")
+        # The LLM's self-reported confidence was >= 0.92 on 48 of 50 dev tweets, so it cannot flag its
+        # own mistakes; disagreement with an independent classifier doubled the dev failure rate.
+        if second_opinion is not None and second_opinion != analysis["intent"]:
+            reasons.append(f"second_opinion:{second_opinion}")
         if analysis.get("escalate") and analysis.get("escalation_reason", "none") != "none":
             reasons.append(f"llm:{analysis['escalation_reason']}")
         if not reply or COMMITMENT_RE.search(reply):
             reasons.append("draft_commitment_or_empty")
+        if CLAIMED_ACTION_RE.search(reply):
+            reasons.append("draft_claims_action")
         return reasons
 
     def handle(self, message, context=""):
         analysis = self.analyse(message, context)
         examples = self.retriever.search(message)
         reply, cited = self.draft(message, context, analysis["intent"], examples)
-        reasons = self.decide(message, analysis, reply)
+        second_opinion = self.second_opinion.predict([message])[0]
+        reasons = self.decide(message, analysis, reply, second_opinion)
         return {
             "pred_intent": analysis["intent"],
             "confidence": analysis["confidence"],
+            "second_opinion_intent": second_opinion,
             "llm_rationale": analysis.get("rationale", ""),
             "reply": reply,
             "cited_examples": ";".join(cited),
