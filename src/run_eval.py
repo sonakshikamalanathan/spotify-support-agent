@@ -15,9 +15,9 @@ import pandas as pd
 from sklearn.metrics import classification_report, confusion_matrix
 
 import metrics as M
-from agent import Retriever, format_thread, run_on
+from agent import format_thread, run_on
 from baselines import run_baselines
-from config import EVAL_DIR, LABELS_DIR, PAIRS_CSV, REPORTS_DIR
+from config import EVAL_DIR, LABELS_DIR, PAIRS_CSV, REPORTS_DIR, SEED
 from judge import ReplyJudge
 
 SYSTEMS = ["trivial", "simple", "agent"]
@@ -40,21 +40,21 @@ def predict(gold, pairs, history):
     return {"trivial": trivial, "simple": simple, "agent": agent}
 
 
-def judge_all(gold, preds, pairs, history):
-    judge = ReplyJudge()
-    retriever = Retriever(history)
+def judge_all(gold, preds, pairs):
+    """Grade every system's reply for every golden message, blind to which system wrote it.
+    The only reference is the brand's actual reply: adding retrieved replies would hand the
+    retrieval baseline its own answer as the reference."""
     actual = pairs.set_index("conv_id")["brand_reply"]
-    rows = []
-    for n, g in enumerate(gold.itertuples(index=False), 1):
-        references = [f"(actual reply to this message) {actual[g.conv_id]}"]
-        references += [r["brand_reply"] for r in retriever.search(g.customer_text, k=3)]
-        thread = format_thread(g.context, g.customer_text)
-        for system in SYSTEMS:
-            reply = preds[system].set_index("conv_id").at[g.conv_id, "reply"]
-            rows.append({"conv_id": g.conv_id, "system": system, "reply": reply, **judge.score(thread, references, reply)})
-        if n % 10 == 0:
-            print(f"  judge: {n}/{len(gold)}")
-    return pd.DataFrame(rows)
+    replies = {system: preds[system].set_index("conv_id")["reply"] for system in SYSTEMS}
+    cases = [
+        {"conv_id": g.conv_id, "system": system, "reply": replies[system][g.conv_id],
+         "thread": format_thread(g.context, g.customer_text), "references": [actual[g.conv_id]]}
+        for g in gold.itertuples(index=False) for system in SYSTEMS
+    ]
+    # Shuffle so each batch mixes systems and conversations.
+    cases = [cases[i] for i in np.random.default_rng(SEED).permutation(len(cases))]
+    scores = ReplyJudge().score_many(cases)
+    return pd.DataFrame([{"conv_id": c["conv_id"], "system": c["system"], "reply": c["reply"], **s} for c, s in zip(cases, scores)])
 
 
 def system_metrics(gold, pred, judged):
@@ -148,7 +148,7 @@ def main():
     preds = predict(gold, pairs, history)
     for system, frame in preds.items():
         frame.to_csv(EVAL_DIR / f"predictions_{split}_{system}.csv", index=False)
-    judged = judge_all(gold, preds, pairs, history)
+    judged = judge_all(gold, preds, pairs)
     judged.to_csv(EVAL_DIR / f"judgments_{split}.csv", index=False)
 
     results, merged = {"split": split}, {}

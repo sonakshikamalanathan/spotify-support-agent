@@ -16,3 +16,7 @@ data/raw/
 .DS_Store
 Thumbs.db
 .streamlit/secrets.toml
+
+# local tooling
+.claude/
+.pytest_cache/

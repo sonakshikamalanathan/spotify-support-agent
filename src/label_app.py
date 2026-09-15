@@ -1,7 +1,10 @@
-"""Local labelling tool for (1) the golden set and (2) blind human ratings of replies.
+"""Local labelling tool:
+  1. Golden set labels (intent + escalation)
+  2. Consistency re-label: 30 of your own finished items again, blind, to measure label noise
+  3. Blind reply ratings, used to measure judge-human agreement
 
 Run:  .venv/Scripts/streamlit run src/label_app.py
-Labels are saved to labels/*.csv after every click.
+Everything is saved to labels/*.csv after each click.
 """
 import json
 from datetime import datetime, timezone
@@ -9,14 +12,18 @@ from datetime import datetime, timezone
 import pandas as pd
 import streamlit as st
 
-from config import LABELS_DIR
+from config import LABELS_DIR, SEED
 from judge import RUBRIC
 
 CODEBOOK = LABELS_DIR / "codebook.json"
 CANDIDATES = LABELS_DIR / "golden_candidates.csv"
 GOLDEN = LABELS_DIR / "golden_labels.csv"
+RELABEL_ITEMS = LABELS_DIR / "relabel_items.csv"
+RELABEL = LABELS_DIR / "relabel_labels.csv"
 RATING_ITEMS = LABELS_DIR / "human_rating_items.csv"
 RATINGS = LABELS_DIR / "human_reply_ratings.csv"
+N_RELABEL = 30
+MIN_LABELS_BEFORE_RELABEL = 150
 
 
 def read_csv(path, key):
@@ -47,60 +54,90 @@ def next_unlabelled(items, key, done, start):
     return start
 
 
-def golden_page():
-    codebook = json.loads(CODEBOOK.read_text(encoding="utf-8"))
-    intents = {i["id"]: i for i in codebook["intents"]}
-    reasons = ["none"] + [r["id"] for r in codebook["escalation_reasons"]]
-    items = pd.read_csv(CANDIDATES, dtype={"conv_id": str}, keep_default_na=False)
-    labels = read_csv(GOLDEN, "conv_id")
-    done = set(labels["conv_id"])
-
-    st.progress(len(done) / len(items), text=f"{len(done)} / {len(items)} labelled")
-    if "g_idx" not in st.session_state:
-        st.session_state.g_idx = next_unlabelled(items, "conv_id", done, -1)
-    st.sidebar.number_input("Item #", 0, len(items) - 1, key="g_idx")
+def codebook_sidebar(codebook):
     with st.sidebar.expander("Codebook", expanded=False):
+        for rule in codebook["labelling_rules"]:
+            st.markdown(f"- {rule}")
+        st.markdown("---")
         for i in codebook["intents"]:
-            st.markdown(f"**{i['id']}** - {i['definition']}")
+            st.markdown(f"**{i['name']}** (`{i['id']}`): {i['definition']}")
         st.markdown("---")
         for r in codebook["escalation_reasons"]:
-            st.markdown(f"**{r['id']}** - {r['definition']}")
+            st.markdown(f"**{r['id']}**: {r['definition']}")
 
-    item = items.iloc[st.session_state.g_idx]
+
+def intent_label_page(items, out_path, prefix):
+    codebook = json.loads(CODEBOOK.read_text(encoding="utf-8"))
+    intents = {i["id"]: i for i in codebook["intents"]}
+    intent_ids = list(intents)
+    reasons = ["none"] + [r["id"] for r in codebook["escalation_reasons"]]
+    labels = read_csv(out_path, "conv_id")
+    done = set(labels["conv_id"])
+    idx_key = f"{prefix}_idx"
+
+    st.progress(min(1.0, len(done & set(items["conv_id"])) / len(items)),
+                text=f"{len(done & set(items['conv_id']))} / {len(items)} labelled")
+    if idx_key not in st.session_state:
+        st.session_state[idx_key] = next_unlabelled(items, "conv_id", done, -1)
+    st.sidebar.number_input("Item #", 0, len(items) - 1, key=idx_key)
+    codebook_sidebar(codebook)
+
+    item = items.iloc[st.session_state[idx_key]]
     cid = item["conv_id"]
     existing = labels[labels["conv_id"] == cid]
     prev = existing.iloc[0] if len(existing) else None
-    st.caption(f"conv_id {cid} · split {item['golden_split']} · {'already labelled' if prev is not None else 'new'}")
+    st.caption(f"Item {st.session_state[idx_key] + 1} · {'already labelled (you can change it)' if prev is not None else 'new'}")
     show_thread(item["context"], item["customer_text"])
 
-    intent_ids = list(intents)
-    st.radio("Intent", intent_ids, key=f"intent_{cid}", horizontal=True,
+    st.radio("Intent", intent_ids, key=f"{prefix}_intent_{cid}",
              index=intent_ids.index(prev["intent"]) if prev is not None else None,
              format_func=lambda x: intents[x]["name"])
-    st.radio("Should a human handle this?", ["no", "yes"], key=f"esc_{cid}", horizontal=True,
+    st.radio("Should a human handle this?", ["no", "yes"], key=f"{prefix}_esc_{cid}", horizontal=True,
              index=["no", "yes"].index(prev["should_escalate"]) if prev is not None else 0)
-    st.selectbox("Escalation reason", reasons, key=f"reason_{cid}",
+    st.selectbox("Escalation reason (if yes)", reasons, key=f"{prefix}_reason_{cid}",
                  index=reasons.index(prev["escalation_reason"]) if prev is not None else 0)
-    st.checkbox("I'm unsure about this label", key=f"unsure_{cid}",
+    st.checkbox("I'm unsure about this label", key=f"{prefix}_unsure_{cid}",
                 value=(prev is not None and str(prev["unsure"]) == "True"))
-    st.text_input("Notes (optional)", key=f"notes_{cid}", value=prev["notes"] if prev is not None else "")
+    st.text_input("Notes (optional)", key=f"{prefix}_notes_{cid}", value=prev["notes"] if prev is not None else "")
 
     def save():
         s = st.session_state
-        if s[f"intent_{cid}"] is None:
-            st.session_state.flash = "Pick an intent first."
+        if s[f"{prefix}_intent_{cid}"] is None:
+            s[f"{prefix}_flash"] = "Pick an intent first."
             return
-        upsert(GOLDEN, "conv_id", {
-            "conv_id": cid, "intent": s[f"intent_{cid}"], "should_escalate": s[f"esc_{cid}"],
-            "escalation_reason": s[f"reason_{cid}"] if s[f"esc_{cid}"] == "yes" else "none",
-            "unsure": s[f"unsure_{cid}"], "notes": s[f"notes_{cid}"],
+        escalate = s[f"{prefix}_esc_{cid}"]
+        upsert(out_path, "conv_id", {
+            "conv_id": cid, "intent": s[f"{prefix}_intent_{cid}"], "should_escalate": escalate,
+            "escalation_reason": s[f"{prefix}_reason_{cid}"] if escalate == "yes" else "none",
+            "unsure": s[f"{prefix}_unsure_{cid}"], "notes": s[f"{prefix}_notes_{cid}"],
             "labelled_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         })
-        s.g_idx = next_unlabelled(items, "conv_id", done | {cid}, s.g_idx)
+        s[idx_key] = next_unlabelled(items, "conv_id", done | {cid}, s[idx_key])
 
     st.button("Save & next", type="primary", on_click=save)
-    if st.session_state.pop("flash", None):
-        st.warning("Pick an intent first.")
+    flash = st.session_state.pop(f"{prefix}_flash", None)
+    if flash:
+        st.warning(flash)
+
+
+def golden_page():
+    items = pd.read_csv(CANDIDATES, dtype={"conv_id": str}, keep_default_na=False)
+    intent_label_page(items, GOLDEN, "g")
+
+
+def relabel_page():
+    labels = read_csv(GOLDEN, "conv_id")
+    if not RELABEL_ITEMS.exists():
+        if len(labels) < MIN_LABELS_BEFORE_RELABEL:
+            st.info(f"Finish the golden set first ({len(labels)} labelled so far). This check re-samples "
+                    f"{N_RELABEL} of your finished labels, so do it last, after a break.")
+            return
+        labels.sample(N_RELABEL, random_state=SEED)[["conv_id"]].to_csv(RELABEL_ITEMS, index=False)
+    candidates = pd.read_csv(CANDIDATES, dtype={"conv_id": str}, keep_default_na=False).set_index("conv_id")
+    ids = read_csv(RELABEL_ITEMS, "conv_id")["conv_id"]
+    items = candidates.loc[ids].reset_index()
+    st.warning("Blind re-label: your earlier answers are hidden. Label each message from scratch.")
+    intent_label_page(items, RELABEL, "rl")
 
 
 def rating_page():
@@ -119,7 +156,7 @@ def rating_page():
     existing = ratings[ratings["item_id"] == iid]
     prev = existing.iloc[0] if len(existing) else None
     show_thread(item["context"], item["customer_text"])
-    st.markdown("**Candidate reply** (system hidden)")
+    st.markdown("**Candidate reply** (which system wrote it is hidden)")
     st.success(item["reply"] or "(empty)")
 
     st.radio("Overall (1-5)", [1, 2, 3, 4, 5], key=f"overall_{iid}", horizontal=True,
@@ -142,13 +179,12 @@ def rating_page():
 
 
 st.set_page_config(page_title="Spotify support labelling", layout="centered")
-mode = st.sidebar.radio("Task", ["Golden set labels", "Rate replies (judge agreement)"])
-if mode == "Golden set labels":
-    if CANDIDATES.exists() and CODEBOOK.exists():
-        golden_page()
-    else:
-        st.write("Golden candidates or codebook not generated yet.")
+mode = st.sidebar.radio("Task", ["1. Golden set labels", "2. Consistency re-label", "3. Rate replies"])
+if mode.startswith("1"):
+    golden_page() if CANDIDATES.exists() else st.write("Golden candidates not generated yet.")
+elif mode.startswith("2"):
+    relabel_page()
 elif RATING_ITEMS.exists():
     rating_page()
 else:
-    st.write("Rating items not generated yet.")
+    st.write("Rating items are generated after the agent and judge run. I'll tell you when they're ready.")

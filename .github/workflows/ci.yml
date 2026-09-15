@@ -1,0 +1,29 @@
+name: tests-and-reproduction
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Unit tests
+        run: pytest -q
+      - name: Reproduce headline results offline (cached LLM responses, no API keys)
+        env:
+          OFFLINE: "1"
+        run: |
+          if [ -f eval/results_test.json ]; then
+            python src/run_eval.py --split test
+            python src/check_reproduction.py
+          else
+            echo "No committed results yet - skipping reproduction check."
+          fi
