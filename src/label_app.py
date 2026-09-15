@@ -3,7 +3,7 @@
   2. Consistency re-label: 30 of your own finished items again, blind, to measure label noise
   3. Blind reply ratings, used to measure judge-human agreement
 
-Run:  .venv/Scripts/streamlit run src/label_app.py
+Run:  .venv/Scripts/streamlit run src/label_app.py      (keyboard-driven alternative: src/fast_label.py)
 Everything is saved to labels/*.csv after each click.
 """
 import json
@@ -12,30 +12,9 @@ from datetime import datetime, timezone
 import pandas as pd
 import streamlit as st
 
-from config import LABELS_DIR, SEED
 from judge import RUBRIC
-
-CODEBOOK = LABELS_DIR / "codebook.json"
-CANDIDATES = LABELS_DIR / "golden_candidates.csv"
-GOLDEN = LABELS_DIR / "golden_labels.csv"
-RELABEL_ITEMS = LABELS_DIR / "relabel_items.csv"
-RELABEL = LABELS_DIR / "relabel_labels.csv"
-RATING_ITEMS = LABELS_DIR / "human_rating_items.csv"
-RATINGS = LABELS_DIR / "human_reply_ratings.csv"
-N_RELABEL = 30
-MIN_LABELS_BEFORE_RELABEL = 150
-
-
-def read_csv(path, key):
-    if path.exists():
-        return pd.read_csv(path, dtype={key: str}, keep_default_na=False)
-    return pd.DataFrame(columns=[key])
-
-
-def upsert(path, key, row):
-    df = read_csv(path, key)
-    df = df[df[key] != str(row[key])]
-    pd.concat([df, pd.DataFrame([row])], ignore_index=True).to_csv(path, index=False)
+from labels_io import (CANDIDATES, CODEBOOK, GOLDEN, MIN_LABELS_BEFORE_RELABEL, N_RELABEL, RATING_ITEMS, RATINGS,
+                       RELABEL, read_csv, relabel_items, upsert)
 
 
 def show_thread(context, message):
@@ -126,16 +105,11 @@ def golden_page():
 
 
 def relabel_page():
-    labels = read_csv(GOLDEN, "conv_id")
-    if not RELABEL_ITEMS.exists():
-        if len(labels) < MIN_LABELS_BEFORE_RELABEL:
-            st.info(f"Finish the golden set first ({len(labels)} labelled so far). This check re-samples "
-                    f"{N_RELABEL} of your finished labels, so do it last, after a break.")
-            return
-        labels.sample(N_RELABEL, random_state=SEED)[["conv_id"]].to_csv(RELABEL_ITEMS, index=False)
-    candidates = pd.read_csv(CANDIDATES, dtype={"conv_id": str}, keep_default_na=False).set_index("conv_id")
-    ids = read_csv(RELABEL_ITEMS, "conv_id")["conv_id"]
-    items = candidates.loc[ids].reset_index()
+    items = relabel_items()
+    if items is None:
+        st.info(f"Finish the golden set first ({len(read_csv(GOLDEN, 'conv_id'))} labelled so far; need "
+                f"{MIN_LABELS_BEFORE_RELABEL}). This check re-samples {N_RELABEL} of your finished labels, so do it last.")
+        return
     st.warning("Blind re-label: your earlier answers are hidden. Label each message from scratch.")
     intent_label_page(items, RELABEL, "rl")
 
