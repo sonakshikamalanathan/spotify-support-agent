@@ -105,10 +105,27 @@ The judge catches **71/72 planted defects**, and flags every invented refund or 
 
 **(c) Agreement with a human** ⏳. 60 replies from all three systems were shuffled with the system hidden, and I rated them blind on the same rubric: weighted κ = __, acceptable/not agreement = __%, mean judge − human = __.
 
-## 6. How much should we automate? ⏳
+## 6. How much should we automate?
 
-- Automation dial (share auto-handled vs error among auto-handled, by confidence threshold)
-- Per-intent tiers chosen on dev; cost per 100 tickets on test for: all human / suggest only / auto everything / tiered
+**The confidence dial is flat.** Sweeping the agent's confidence threshold changes almost nothing below 0.9, because 147 of 157 test predictions report at least 0.9 (`reports/automation_dial_test.png`). A threshold cannot buy safety here, so the decision is made by rollout mode and per intent instead.
+
+**Cost of four rollout policies on the test set**, per 100 tweets. A human writing a reply costs 1, a human approving a usable AI draft 0.3, a bad auto-reply 3, and a missed escalation 10.
+
+| Policy | Cost / 100 tweets | Sent with no human | Missed escalations | Bad replies sent |
+|---|---|---|---|---|
+| Humans write every reply | 100 | 0% | 0 | 0 |
+| **AI drafts, a human approves every reply** | **67** | 0% | 0 | 0 |
+| AI sends unless it escalates | 157 | 44% | 13 | 18 |
+| Tiered: auto-send only intents proven on dev | 67 | 0% | 0 | 0 |
+
+**No intent earned auto-send.** Tiers were chosen on dev: an intent qualifies only if its smoothed failure rate among auto-handled tweets is at most 20%. With 2 to 12 dev tweets per intent none got there (the best, billing, was at 29%), so the tiered policy collapses to "draft for approval".
+
+**Recommendation for Hiver: ship it as a drafting assistant, not an auto-responder.** Drafting cuts handling cost by a third with zero unreviewed public replies. Letting it send on its own costs *more* than using no AI at all (157 vs 100), because 13 missed escalations and 18 bad replies outweigh the automation. That conclusion holds whether a missed escalation is priced at 5 (cost 116) or 25 (cost 281). The closest candidate for future auto-send is *Thanks / resolved* (12 auto-handled on test, 2 failures); the furthest is *Playback* (16 auto-handled, 13 failures).
+
+**Rollout plan.**
+1. *Shadow*: the agent drafts silently while humans work as usual, and every draft is logged next to what the human actually sent.
+2. *Suggest*: agents see the draft and edit or approve it; track the edit rate per intent.
+3. *Auto-send per intent*: promote an intent only once shadow and suggest data give it enough examples with a low failure rate, starting with *Thanks / resolved*.
 
 ## 7. Failure analysis: top 5 failure modes
 
