@@ -4,7 +4,7 @@ The rubric text is shown verbatim to the human rater in the labelling app, so ju
 score against identical definitions. To fit the free-tier daily request quota, unrelated cases
 are graded in small shuffled batches; judge_validation.py measures whether batching changes scores.
 """
-from config import BRAND, JUDGE
+from config import BRAND, JUDGE, JUDGE_MIN_INTERVAL_S
 from llm import LLM
 
 BATCH_SIZE = 6
@@ -47,7 +47,7 @@ with exactly one entry per case ({n} in total), in case order."""
 class ReplyJudge:
     def __init__(self, batch_size=BATCH_SIZE, cache_name="judge"):
         self.batch_size = batch_size
-        self.llm = LLM(JUDGE["provider"], JUDGE["model"], cache_name=cache_name)
+        self.llm = LLM(JUDGE["provider"], JUDGE["model"], cache_name=cache_name, min_interval=JUDGE_MIN_INTERVAL_S)
 
     def score(self, thread, references, reply):
         return self._score_chunk([{"thread": thread, "references": references, "reply": reply}])[0]

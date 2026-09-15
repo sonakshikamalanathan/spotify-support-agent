@@ -24,8 +24,9 @@ class CacheMiss(RuntimeError):
 
 
 class LLM:
-    def __init__(self, provider, model, cache_name):
+    def __init__(self, provider, model, cache_name, min_interval=None):
         self.provider, self.model = provider, model
+        self.min_interval = MIN_INTERVAL_S.get(provider, 0) if min_interval is None else min_interval
         self.offline = os.getenv("OFFLINE") == "1"
         CACHE_DIR.mkdir(parents=True, exist_ok=True)
         self.cache_path = CACHE_DIR / f"{cache_name}.jsonl"
@@ -76,11 +77,11 @@ class LLM:
                 time.sleep(wait)
 
     def _pace(self):
-        gap = MIN_INTERVAL_S.get(self.provider, 0)
-        elapsed = time.time() - _last_call.get(self.provider, 0)
-        if elapsed < gap:
-            time.sleep(gap - elapsed)
-        _last_call[self.provider] = time.time()
+        key = (self.provider, self.model)
+        elapsed = time.time() - _last_call.get(key, 0)
+        if elapsed < self.min_interval:
+            time.sleep(self.min_interval - elapsed)
+        _last_call[key] = time.time()
 
     def _groq(self, system, user, temperature, max_tokens):
         if self._client is None:
