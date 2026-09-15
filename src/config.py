@@ -24,11 +24,12 @@ PAIRS_CSV = DATA_PROCESSED / "spotify_pairs.csv"
 # short replies does not.
 ANALYSER = {"provider": "groq", "model": "openai/gpt-oss-120b"}
 DRAFTER = {"provider": "groq", "model": "qwen/qwen3.8-27b"}
-# The judge grades replies, so it must not be the model that wrote them (Qwen). Gemini 2.5 Flash
-# was the first choice but its free tier allows only 20 requests/day; gpt-oss-120b on Groq allows 1,000.
-JUDGE = {"provider": "groq", "model": "openai/gpt-oss-120b"}
+# The judge grades replies, so it must not be the model that wrote them (Qwen). Free-tier limits
+# decided the rest: Gemini 2.5 Flash allows 20 requests/day, and gpt-oss-120b's 200K tokens/day ran
+# out mid-evaluation, so the final judge is gpt-oss-20b (its own 200K/day), re-run on every split.
+JUDGE = {"provider": "groq", "model": "openai/gpt-oss-20b"}
 
 # Minimum seconds between calls per provider (free-tier rate limits).
 MIN_INTERVAL_S = {"groq": 2.5, "gemini": 4.5}
-# A batch of judge cases is ~2,500 tokens and Groq's free tier allows 8,000 tokens/minute.
-JUDGE_MIN_INTERVAL_S = 20
+# A batch of 12 judge cases is ~2,700 tokens and Groq's free tier allows 8,000 tokens/minute.
+JUDGE_MIN_INTERVAL_S = 23

@@ -7,7 +7,7 @@ are graded in small shuffled batches; judge_validation.py measures whether batch
 from config import BRAND, JUDGE, JUDGE_MIN_INTERVAL_S
 from llm import LLM
 
-BATCH_SIZE = 6
+BATCH_SIZE = 12
 
 RUBRIC = f"""OVERALL (1-5) - would a @{BRAND} support lead send this reply?
   5 = Send as-is: addresses the customer's actual issue, correct, on-brand.
