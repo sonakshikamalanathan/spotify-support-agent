@@ -362,7 +362,28 @@
       "unsafe_auto_rate": 0.0
     }
   ],
-  "judge_human_agreement": null,
+  "judge_human_agreement": {
+    "n": 60,
+    "overall_weighted_kappa": 0.46856547412295935,
+    "overall_exact_agreement": 0.4,
+    "overall_within_1": 0.8333333333333334,
+    "acceptable_kappa": 0.726027397260274,
+    "acceptable_agreement": 0.8666666666666667,
+    "hallucination_kappa": 0.16666666666666652,
+    "judge_minus_human_mean": 0.31666666666666665,
+    "length_corr_judge": 0.265145069114326,
+    "length_corr_human": 0.17394859810949076,
+    "confusion_acceptable": {
+      "false": {
+        "false": 21,
+        "true": 3
+      },
+      "true": {
+        "false": 5,
+        "true": 31
+      }
+    }
+  },
   "agent_intent_report": {
     "account_access": {
       "precision": 0.8181818181818182,
