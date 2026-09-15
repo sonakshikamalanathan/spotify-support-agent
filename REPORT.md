@@ -2,8 +2,6 @@
 
 *Hiver SDE Intern take-home · Sonakshi Kamalanathan · Interactive version: `docs/index.html` · Decision log: `DECISIONS.md`*
 
-> **Draft.** Sections marked ⏳ are filled in after the golden set is fully labelled and the evaluation has run.
-
 ## 1. Problem framing
 
 **The job.** @SpotifyCares answers public tweets. For each incoming tweet the agent must (1) classify it into one of 9 intents, (2) draft a reply in the brand's voice grounded in how the brand handled similar tweets, and (3) decide whether it may reply on its own or must hand off to a human, with a reason.
@@ -33,7 +31,7 @@ So "good enough to trust" is not one accuracy number. It means: **catch nearly e
 
 The first 50 (shuffled) form a **dev split** used for tuning and choosing the trust policy; the other 157 are the **test split** behind every reported number.
 
-**Labelling.** I labelled every tweet by hand in a small Streamlit tool (`src/label_app.py`): intent, whether a human must handle it, the escalation reason, and an "unsure" flag. I labelled **blind**: the brand's actual reply and all model predictions were hidden. The first 11 dev tweets were a calibration round: an AI assistant checked those labels against the codebook's rules (not against any model output), and I corrected the ones that broke a rule, for example a hacked account I had not escalated. Every other label was made without assistance. ⏳ *Label noise:* I re-labelled 30 random tweets blind at the end; self-agreement was __% on intent (κ = __) and __% on escalation.
+**Labelling.** I labelled every tweet by hand in two small local tools, a Streamlit app (`src/label_app.py`) and a keyboard-driven page (`src/fast_label.py`): intent, whether a human must handle it, the escalation reason, and an "unsure" flag. I labelled **blind**: the brand's actual reply and all model predictions were hidden. The first 11 dev tweets were a calibration round: an AI assistant checked those labels against the codebook's rules (not against any model output), and I corrected the ones that broke a rule, for example a hacked account I had not escalated. Every other label was made without assistance. *Label noise:* at the end I re-labelled 30 random tweets blind. I gave the same intent 80% of the time (κ = 0.76, substantial) and the same escalation decision 87% of the time (κ = 0.63).
 
 ## 3. The system
 
@@ -103,7 +101,7 @@ The judge rejects **69 of 72 planted defects** and flags every invented refund o
 
 **(b) Batching.** To stay within free-tier limits the judge grades 12 unrelated cases per call. Re-grading 24 cases one per call: 92% agree on acceptable vs not and 92% of scores are within 1 point, but only 50% match exactly (weighted κ = 0.37). Batching moves individual scores, but rarely flips the send/don't-send decision the headline numbers use.
 
-**(c) Agreement with a human** ⏳. 60 replies from all three systems were shuffled with the system hidden, and I rated them blind on the same rubric: weighted κ = __, acceptable/not agreement = __%, mean judge − human = __.
+**(c) Agreement with a human.** 60 replies from all three systems were shuffled with the system hidden, and I rated them blind on the same rubric. On the 1–5 score the judge and I agree at weighted κ = 0.47 (moderate): 40% exactly and 83% within one point. On the decision the headline uses, acceptable or not, we agree 87% of the time (κ = 0.73); on hallucination, κ = 0.17. The judge scores 0.32 points higher than I do on average, and reply length correlates with the judge's score at ρ = 0.27 and with mine at ρ = 0.17.
 
 **(d) A different judge.** `gpt-oss-120b` and `gpt-oss-20b` graded the same 150 dev replies. They agree on acceptable vs not 86% of the time (κ = 0.71), with no overall leniency difference (mean score +0.03). On the agent's replies, though, they differ more: 84% vs 70% acceptable. The choice of judge alone moves the agent's reply-quality number by about 14 points.
 
@@ -155,8 +153,8 @@ The headline, "79% intent accuracy and 87% acceptable replies, beating both base
 1. **The test set is harder, and shaped differently, than real traffic.** 43% of it is intent-balanced and 19% hard cases, on purpose. On the 71 uniformly sampled tweets alone, intent accuracy is 76%, acceptable replies 82%, and escalation recall **50%** (not 65%), with wider intervals.
 2. **Escalation recall rests on 37 tweets, and dev overstated it.** It was 92% on the 13 dev escalations and 65% on test; the second-opinion layer chosen on dev mostly added noise on test (section 7, item 3). A handful of tweets moves this number by 15 points.
 3. **"8% unsafe automation" sounds small, but it is 1 tweet in 12.** In production that is a public, unreviewed reply to someone who needed a person, many times a day.
-4. **One labeller, who also wrote the codebook.** Every "correct" answer is one person's reading of their own definitions, and several follow-up "errors" in section 7 are arguably label disagreements. ⏳ Re-labelling 30 tweets blind gave __% intent self-agreement, which bounds how precise these accuracies can be.
-5. **"Acceptable reply" is judged, not measured.** ⏳ The judge agreed with my blind ratings at kappa = __. Swapping the judge model alone moved the agent's acceptable-reply rate on dev from 84% to 70%. The judge also has concrete blind spots: it penalised "DM us your email" as a public data request in 3 cases, and it cannot know about outages, account state or what happens in DMs.
+4. **One labeller, who also wrote the codebook.** Every "correct" answer is one person's reading of their own definitions, and several follow-up "errors" in section 7 are arguably label disagreements. Re-labelling 30 tweets blind gave 80% intent self-agreement, which bounds how precise these accuracies can be.
+5. **"Acceptable reply" is judged, not measured.** The judge agreed with my blind ratings on acceptability 87% of the time (κ = 0.73). Swapping the judge model alone moved the agent's acceptable-reply rate on dev from 84% to 70%. The judge also has concrete blind spots: it penalised "DM us your email" as a public data request in 3 cases, and it cannot know about outages, account state or what happens in DMs.
 6. **A good-looking reply often resolves nothing.** Most acceptable replies route the customer to DMs, which is what the brand does, but the actual fix happens later in private, where we cannot measure it.
 7. **Eleven days, one brand, 2017.** The held-out window includes one-off events (Taylor Swift's *reputation* missing from Spotify) and a promo campaign in the Philippines and Indonesia that produced many "is this price real?" replies. Intent mix and templates drift, so this is a snapshot.
 

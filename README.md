@@ -23,7 +23,7 @@ Test split: 157 hand-labelled tweets from the held-out period, with 95% bootstra
 | Hallucination rate (LLM judge) | 8.9% | 6.4% | **0.6%** |
 | Unsafe automation (auto-answered but needed a human) | 23.6% | 14.6% | **8.3%** |
 
-The agent is much better than both baselines, and still not safe to run unsupervised: on natural traffic alone, escalation recall is only 50%. The full story, including what is misleading about these numbers, is in [REPORT.md](REPORT.md).
+The agent is much better than both baselines, and still not safe to run unsupervised: on natural traffic alone, escalation recall is only 50%. The LLM judge agrees with blind human ratings on acceptability 87% of the time (κ = 0.73) and rejects 69 of 72 deliberately broken replies. The full story, including what is misleading about these numbers, is in [REPORT.md](REPORT.md).
 
 ## Reproduce the headline numbers (about 2 minutes, no API keys)
 
@@ -38,7 +38,7 @@ OFFLINE=1 python src/run_eval.py --split test     # PowerShell: $env:OFFLINE="1"
 
 ## Run everything from scratch
 
-Needs a Kaggle download of the dataset, and free `GROQ_API_KEY` / `GEMINI_API_KEY` values in `.env` (see `.env.example`).
+Needs a Kaggle download of the dataset and a free `GROQ_API_KEY` in `.env` (see `.env.example`). The Gemini client in `src/llm.py` still works, but the final run does not use it.
 
 | Step | Command | Output |
 |---|---|---|
