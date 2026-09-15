@@ -85,25 +85,27 @@ What the numbers say:
 
 ## 5. Can we trust the judge?
 
-The judge (`gpt-oss-120b`, a different model family from the Qwen reply writer) scores each reply 1–5 plus a hallucination flag against the same rubric shown to the human rater. It is validated three ways.
+The judge scores each reply 1–5 plus a hallucination flag, against the same rubric shown to the human rater. It is `gpt-oss-20b`, a different model family from the Qwen reply writer. It was not the first choice: `gpt-oss-120b` graded dev and the first stress test, then hit Groq's free limit of 200K tokens per day partway through the test split, so every split was re-graded with `gpt-oss-20b`. That forced switch became a fourth check, (d).
 
 **(a) Planted-defect stress test** (`eval/judge_validation.json`). I took 12 real held-out conversations and graded the brand's own reply (control) alongside six deliberately broken replies:
 
 | Broken reply | Rejected by judge | Mean score |
 |---|---|---|
-| Invents a refund + free months | 12/12 | 1.2 |
-| Invents a policy + fake link | 12/12 | 1.8 |
+| Invents a refund + free months | 12/12 | 1.5 |
+| Invents a policy + fake link | 12/12 | 1.5 |
 | Asks for the password publicly | 12/12 | 1.0 |
-| Rude | 12/12 | 1.0 |
-| Ignores the issue | 12/12 | 1.8 |
-| Answers a different tweet | 11/12 | 2.3 |
+| Rude | 12/12 | 1.1 |
+| Ignores the issue | 12/12 | 2.3 |
+| Answers a different tweet | 9/12 | 2.8 |
 | *Control: brand's real reply* | *accepted 8/12* | *3.8* |
 
-The judge catches **71/72 planted defects**, and flags every invented refund or policy as a hallucination. Its one miss was an off-topic reply generic enough to fit many catalogue tweets ("we'll have it available as soon as it's available to us"). It is **strict**: 4 of the brand's own replies were rejected, 3 of them "we had a hiccup, it should work now". The judge cannot know an outage really happened, so judge-graded reply quality is a conservative estimate.
+The judge rejects **69 of 72 planted defects** and flags every invented refund or policy as a hallucination. All three misses are off-topic replies generic enough to fit many tweets ("we'll have it available as soon as it's available to us"), so its weakest spot is noticing a reply that answers a *different* question. It is strict with real replies too, rejecting 4 of the brand's own 12, so judge-graded reply quality is if anything a conservative estimate.
 
-**(b) Batching.** To fit free-tier request quotas the judge grades 6 unrelated cases per call. Re-grading 24 cases one per call: 92% agree on acceptable/not, 92% of scores are within 1 point, 71% match exactly (weighted κ = 0.65). Batching shifts individual scores a little but rarely flips the send/don't-send decision.
+**(b) Batching.** To stay within free-tier limits the judge grades 12 unrelated cases per call. Re-grading 24 cases one per call: 92% agree on acceptable vs not and 92% of scores are within 1 point, but only 50% match exactly (weighted κ = 0.37). Batching moves individual scores, but rarely flips the send/don't-send decision the headline numbers use.
 
 **(c) Agreement with a human** ⏳. 60 replies from all three systems were shuffled with the system hidden, and I rated them blind on the same rubric: weighted κ = __, acceptable/not agreement = __%, mean judge − human = __.
+
+**(d) A different judge.** `gpt-oss-120b` and `gpt-oss-20b` graded the same 150 dev replies. They agree on acceptable vs not 86% of the time (κ = 0.71), with no overall leniency difference (mean score +0.03). On the agent's replies, though, they differ more: 84% vs 70% acceptable. The choice of judge alone moves the agent's reply-quality number by about 14 points.
 
 ## 6. How much should we automate?
 
@@ -154,7 +156,7 @@ The headline, "79% intent accuracy and 87% acceptable replies, beating both base
 2. **Escalation recall rests on 37 tweets, and dev overstated it.** It was 92% on the 13 dev escalations and 65% on test; the second-opinion layer chosen on dev mostly added noise on test (section 7, item 3). A handful of tweets moves this number by 15 points.
 3. **"8% unsafe automation" sounds small, but it is 1 tweet in 12.** In production that is a public, unreviewed reply to someone who needed a person, many times a day.
 4. **One labeller, who also wrote the codebook.** Every "correct" answer is one person's reading of their own definitions, and several follow-up "errors" in section 7 are arguably label disagreements. ⏳ Re-labelling 30 tweets blind gave __% intent self-agreement, which bounds how precise these accuracies can be.
-5. **"Acceptable reply" is judged, not measured.** ⏳ The judge agreed with my blind ratings at kappa = __. It also has concrete blind spots: it penalised "DM us your email" as a public data request in 3 cases, and it cannot know about outages, account state or what happens in DMs.
+5. **"Acceptable reply" is judged, not measured.** ⏳ The judge agreed with my blind ratings at kappa = __. Swapping the judge model alone moved the agent's acceptable-reply rate on dev from 84% to 70%. The judge also has concrete blind spots: it penalised "DM us your email" as a public data request in 3 cases, and it cannot know about outages, account state or what happens in DMs.
 6. **A good-looking reply often resolves nothing.** Most acceptable replies route the customer to DMs, which is what the brand does, but the actual fix happens later in private, where we cannot measure it.
 7. **Eleven days, one brand, 2017.** The held-out window includes one-off events (Taylor Swift's *reputation* missing from Spotify) and a promo campaign in the Philippines and Indonesia that produced many "is this price real?" replies. Intent mix and templates drift, so this is a snapshot.
 

@@ -69,7 +69,7 @@ DECISIONS.md  decision log
 
 ## Citations and borrowed work
 - **Dataset:** *Customer Support on Twitter*, Thought Vector, Kaggle (`thoughtvector/customer-support-on-twitter`). Only a processed @SpotifyCares subset is committed.
-- **Models:** `openai/gpt-oss-120b` and `qwen/qwen3.8-27b` via the Groq API.
+- **Models (Groq API):** `openai/gpt-oss-120b` classifies intents, `qwen/qwen3.8-27b` drafts replies, and `openai/gpt-oss-20b` is the LLM judge.
 - **Libraries:** pandas, scikit-learn (TF-IDF, k-means, logistic regression, Cohen's kappa), matplotlib, Streamlit, google-genai, groq, pytest.
 - **Methods:** LLM-as-judge with human agreement checks follows common practice (e.g. Zheng et al., 2023, *Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena*). Percentile bootstrap confidence intervals, Wilson/Laplace smoothing and Cohen's (weighted) kappa are standard statistics.
 - **AI assistance:** built with Claude Code as a coding assistant. All design decisions are listed in `DECISIONS.md`, and the golden-set labels and human ratings were produced by hand.
