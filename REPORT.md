@@ -114,7 +114,14 @@ Known before seeing the final numbers (to be quantified ⏳):
 6. **Confidence is self-reported.** The automation dial thresholds the LLM's own confidence number, which is not calibrated, so small threshold changes can move automation a lot.
 7. **The agent saw the codebook, and the codebook was shaped by the same data.** Intents were designed on the history period only, but still by the person who then labelled the test set.
 
-## 9. With one more week ⏳
+## 9. With one more week
+
+1. **A second annotator.** Have someone else label 60 of the golden tweets blind, then measure inter-annotator agreement and settle disagreements into codebook v2. Today every "correct" label is one person's reading.
+2. **A trust signal that actually tracks mistakes.** The LLM's self-reported confidence was useless (≥ 0.92 on 48 of 50 dev tweets). Next: sample the analyser 3–5 times and use self-consistency, or fit a small calibrated model on dev over signals we already have (classifier agreement, keyword-rule hits, retrieval similarity), and check its reliability curve before trusting any threshold.
+3. **A shadow-mode pilot.** Run the agent silently on live traffic for a week, log the reply it *would* have sent next to what the human sent, and promote an intent to auto-send only once it has enough examples with a low failure rate. The per-intent tiers here rest on a few dozen dev tweets each.
+4. **Better grounding.** Embedding retrieval with template de-duplication and intent-filtered examples. Weight past replies by whether they worked: a customer who never had to tweet again is a better example than one who replied "still broken".
+5. **A sturdier judge.** Grade a larger human-rated set, test position, length and batch-size effects at scale, and compare a second judge family. Free-tier limits forced two judge-model changes in this project; a small paid budget would remove that source of risk.
+6. **Robustness and drift.** Perturbation tests (typos, sarcasm, emoji-only, code-switching), and weekly monitoring of the intent mix and escalation rate, since catalogue questions spike around album releases.
 
 ## Reproducibility and citations
 See `README.md`. Every LLM response is cached in `cache/`, so `OFFLINE=1 python src/run_eval.py --split test` reproduces the tables without API keys, and CI checks this on every push.
