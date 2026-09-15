@@ -35,7 +35,7 @@ Needs a Kaggle download of the dataset, and free `GROQ_API_KEY` / `GEMINI_API_KE
 | 2. Build brand pairs | `python src/prepare_data.py` | `data/processed/spotify_pairs.csv` |
 | 3. Discover intents | `python src/discover_intents.py` | `reports/intent_clusters.md` |
 | 4. Sample golden set | `python src/make_golden_set.py` | `labels/golden_candidates.csv` |
-| 5. Label | `streamlit run src/label_app.py` | `labels/golden_labels.csv` |
+| 5. Label | `python src/fast_label.py` (keyboard) or `streamlit run src/label_app.py` | `labels/golden_labels.csv` |
 | 6. Evaluate | `python src/run_eval.py --split dev` and `--split test` | `eval/results_*.json` |
 | 7. Validate the judge | `python src/judge_validation.py` | `eval/judge_validation.json` |
 | 8. Blind human ratings | `python src/make_rating_items.py`, then the app's "Rate replies" task | `labels/human_reply_ratings.csv` |

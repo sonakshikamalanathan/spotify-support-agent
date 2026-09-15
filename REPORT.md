@@ -33,7 +33,7 @@ So "good enough to trust" is not one accuracy number. It means: **catch nearly e
 
 The first 50 (shuffled) form a **dev split** used for tuning and choosing the trust policy; the other 157 are the **test split** behind every reported number.
 
-**Labelling.** I labelled every tweet by hand in a small Streamlit tool (`src/label_app.py`): intent, whether a human must handle it, the escalation reason, and an "unsure" flag. I labelled **blind**: the brand's actual reply and all model predictions were hidden. The first 11 dev tweets were a calibration round; after them I re-read the codebook's rules (for example, that hacked accounts always need a human) and corrected the labels that broke them. ⏳ *Label noise:* I re-labelled 30 random tweets blind at the end; self-agreement was __% on intent (κ = __) and __% on escalation.
+**Labelling.** I labelled every tweet by hand in a small Streamlit tool (`src/label_app.py`): intent, whether a human must handle it, the escalation reason, and an "unsure" flag. I labelled **blind**: the brand's actual reply and all model predictions were hidden. The first 11 dev tweets were a calibration round: an AI assistant checked those labels against the codebook's rules (not against any model output), and I corrected the ones that broke a rule, for example a hacked account I had not escalated. Every other label was made without assistance. ⏳ *Label noise:* I re-labelled 30 random tweets blind at the end; self-agreement was __% on intent (κ = __) and __% on escalation.
 
 ## 3. The system
 
