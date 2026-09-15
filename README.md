@@ -12,7 +12,18 @@ Most of this repo is about the second question: **is it good enough to trust, an
 
 ## Headline results
 
-_To be filled in after evaluation._
+Test split: 157 hand-labelled tweets from the held-out period, with 95% bootstrap confidence intervals in brackets.
+
+| Metric | Trivial baseline | Simple baseline | **Agent** |
+|---|---|---|---|
+| Intent accuracy | 14.0% | 51.6% | **79.0%** [72.6, 84.7] |
+| Intent macro-F1 | 0.03 | 0.41 | **0.76** [0.68, 0.82] |
+| Escalation recall (needed a human → got one) | 0% | 37.8% | **64.9%** [48.5, 80.0] |
+| Acceptable replies (LLM judge) | 3.8% | 45.9% | **86.6%** [80.9, 91.7] |
+| Hallucination rate (LLM judge) | 8.9% | 6.4% | **0.6%** |
+| Unsafe automation (auto-answered but needed a human) | 23.6% | 14.6% | **8.3%** |
+
+The agent is much better than both baselines, and still not safe to run unsupervised: on natural traffic alone, escalation recall is only 50%. The full story, including what is misleading about these numbers, is in [REPORT.md](REPORT.md).
 
 ## Reproduce the headline numbers (about 2 minutes, no API keys)
 
