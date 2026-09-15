@@ -25,6 +25,16 @@ Test split: 157 hand-labelled tweets from the held-out period, with 95% bootstra
 
 The agent is much better than both baselines, and still not safe to run unsupervised: on natural traffic alone, escalation recall is only 50%. The LLM judge agrees with blind human ratings on acceptability 87% of the time (κ = 0.73) and rejects 69 of 72 deliberately broken replies. The full story, including what is misleading about these numbers, is in [REPORT.md](REPORT.md).
 
+## Where to find each deliverable
+
+| Assignment deliverable | Where |
+|---|---|
+| Runnable pipeline; headline results reproducible in under 15 minutes | "Reproduce" below (about 2 minutes, offline) · checked on every push by [`.github/workflows/ci.yml`](.github/workflows/ci.yml) |
+| Golden set of 150–250 hand-labelled examples, with a note on sampling and labelling | [`labels/golden_labels.csv`](labels/golden_labels.csv) (207 labels) · [`labels/golden_candidates.csv`](labels/golden_candidates.csv) · [REPORT §2](REPORT.md#2-data-and-golden-set) |
+| Evaluation harness: automated metrics, LLM-judge rubric, judge-human agreement | [`src/run_eval.py`](src/run_eval.py) · [`src/metrics.py`](src/metrics.py) · [`src/judge.py`](src/judge.py) (rubric) · [`src/judge_validation.py`](src/judge_validation.py) · [`labels/human_reply_ratings.csv`](labels/human_reply_ratings.csv) · [REPORT §5](REPORT.md#5-can-we-trust-the-judge) |
+| Report: framing and what wasn't built, results vs two baselines, top 5 failure modes, "what is misleading about my headline number?", next week | [REPORT.md](REPORT.md) §1, §4, §7, §8, §9 |
+| Decision log (10–15 decisions) | [DECISIONS.md](DECISIONS.md) |
+
 ## Reproduce the headline numbers (about 2 minutes, no API keys)
 
 ```bash
@@ -61,7 +71,8 @@ src/        pipeline, agent, baselines, judge, evaluation
 labels/     codebook, golden set candidates and hand labels, human ratings
 eval/       predictions, judge scores, metrics (JSON)
 reports/    cluster report, plots
-cache/      committed LLM responses (offline reproduction)
+cache/      committed LLM responses (offline reproduction; retrieval rankings are in data/processed/)
+docs/       interactive results page (published with GitHub Pages)
 tests/      unit tests
 REPORT.md   the report
 DECISIONS.md  decision log
