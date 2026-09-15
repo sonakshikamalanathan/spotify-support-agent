@@ -1,0 +1,13 @@
+{
+  "pairs_built": 41585,
+  "after_english_filter": 40344,
+  "after_min_length": 39844,
+  "after_dedup": 39732,
+  "split_cutoff": "2017-11-22 12:28:23.200000+00:00",
+  "history": 31785,
+  "test": 7947,
+  "date_range": [
+    "2013-09-18 19:26:22+00:00",
+    "2017-12-03 22:07:39+00:00"
+  ]
+}

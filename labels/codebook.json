@@ -1,0 +1,84 @@
+{
+  "brand": "SpotifyCares",
+  "version": 1,
+  "labelling_rules": [
+    "Label the customer's LATEST message; use earlier thread turns only to understand it.",
+    "If the latest message only supplies information the brand asked for (device, app version, 'yes it still happens'), label the topic of the thread.",
+    "If two intents apply, pick the one the customer most needs resolved.",
+    "Escalate = a human should review before anything is posted publicly. A reply that simply asks the customer to DM is fine to auto-send for routine issues."
+  ],
+  "intents": [
+    {
+      "id": "playback_technical",
+      "name": "Playback / app problem",
+      "definition": "Something in the app or player is not working: songs won't play, skip, stop or are greyed out; crashes, freezes, app errors; downloads disappearing; device or integration problems (PS4, Roku, Alexa, car, Apple Watch).",
+      "includes": ["bugs after an update", "search or UI broken", "ads or ad-free time behaving wrongly"],
+      "excludes": ["can't log in (account_access)", "song missing from the catalogue (content_catalog)", "wants a new feature (feature_feedback)"]
+    },
+    {
+      "id": "account_access",
+      "name": "Login / account details",
+      "definition": "Getting into or managing the account: can't log in, forgot password or email, Facebook login or unlinking, duplicate accounts, changing email/username/country, closing an account.",
+      "includes": ["password reset email not arriving", "account shows the wrong country or language"],
+      "excludes": ["signs someone else took over the account (account_security)", "payment or plan problems (billing_subscription)"]
+    },
+    {
+      "id": "account_security",
+      "name": "Hacked / compromised account",
+      "definition": "Signs that someone else accessed or controls the account: unknown playlists or listening activity, email or password changed without the customer, 'my account was hacked/stolen'.",
+      "includes": ["unknown devices logged in", "email-change notification the customer didn't request"],
+      "excludes": ["simply forgot the password (account_access)"]
+    },
+    {
+      "id": "billing_subscription",
+      "name": "Billing / plans",
+      "definition": "Money and subscriptions: charges, double charges, refunds, paid but not Premium, cancelling or renewing, payment method errors, trials and offers, Family, Student and Hulu bundle plans.",
+      "includes": ["Family invite codes", "student verification", "price questions"],
+      "excludes": ["Premium features not working technically (playback_technical)"]
+    },
+    {
+      "id": "content_catalog",
+      "name": "Music / podcast catalogue",
+      "definition": "What is or isn't on Spotify: when an album or song will be available, content removed or greyed out for licensing, wrong song or artist metadata, artist profile mix-ups, podcast availability.",
+      "includes": ["'why isn't reputation on Spotify?'", "two artists merged into one profile"],
+      "excludes": ["a song that exists but won't play because of a bug (playback_technical)"]
+    },
+    {
+      "id": "feature_feedback",
+      "name": "Feature request / product feedback",
+      "definition": "Suggestions, wishes and opinions about the product rather than a malfunction: new features, design changes, recommendation or playlist quality, complaints about free-tier limits, requests to launch in a country.",
+      "includes": ["'add a light theme'", "'Discover Weekly is bad this week'", "'launch in India'"],
+      "excludes": ["something that used to work is now broken (playback_technical)"]
+    },
+    {
+      "id": "dm_followup",
+      "name": "Following up on a DM / case",
+      "definition": "The customer points to an existing private conversation or case: 'check your DMs', 'I emailed you', 'still waiting for a reply'.",
+      "includes": ["chasing a slow response"],
+      "excludes": ["a new problem described in full (label that problem)"]
+    },
+    {
+      "id": "thanks_resolved",
+      "name": "Thanks / resolved / praise",
+      "definition": "No open request: thanks, confirmation that a fix worked, or compliments.",
+      "includes": ["'it worked, thanks!'", "'you guys are awesome'"],
+      "excludes": ["thanks followed by a new question (label the question)"]
+    },
+    {
+      "id": "other",
+      "name": "Other",
+      "definition": "None of the above: off-topic chatter, jokes, job or partnership requests, unintelligible messages, support requests in another language.",
+      "includes": [],
+      "excludes": []
+    }
+  ],
+  "escalation_reasons": [
+    {"id": "account_security", "definition": "Possible account takeover or unauthorised access."},
+    {"id": "payment_dispute", "definition": "Money taken unexpectedly or wrongly: double charges, charged after cancelling, paid but not upgraded, refund demands."},
+    {"id": "privacy_legal", "definition": "Legal threats, consumer-rights or regulator mentions, data deletion/GDPR requests, or the customer has posted sensitive personal data (email, card, receipt) publicly."},
+    {"id": "safety_wellbeing", "definition": "Self-harm, threats, harassment, or anyone at risk."},
+    {"id": "high_frustration", "definition": "Repeated failed contacts or long waits, very angry or abusive tone, cancellation threats, or a complaint likely to escalate publicly if answered with a template."},
+    {"id": "needs_investigation", "definition": "No safe, useful public reply is possible without a human looking into it (for example several issues at once, or any template reply would be wrong or insulting)."}
+  ],
+  "always_escalate_intents": ["account_security"]
+}

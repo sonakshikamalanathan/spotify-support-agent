@@ -1,0 +1,10 @@
+pandas>=2.2
+numpy>=1.26
+scikit-learn>=1.5
+matplotlib>=3.8
+python-dotenv>=1.0
+tqdm>=4.66
+groq>=0.11
+google-genai>=1.0
+kaggle>=1.6
+streamlit>=1.38

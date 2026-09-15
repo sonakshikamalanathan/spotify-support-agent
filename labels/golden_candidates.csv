@@ -1,0 +1,303 @@
+conv_id,golden_split,stratum,n_prior_turns,context,customer_text
+2942695,dev,intent_balanced,0,,I’m listening to Spotify and this is what’s on my phone. Idk if it’s your end or Apple’s but i just wanted you to be aware. Thanks! <url>
+552673,dev,random,0,,"@user @user having some issues with the Spotify auth API, getting status code 500s when making login requests, we're a team of three, an hour away from demoing our location-based music app, please help! We might actually have a chance to win prizes! ❤️😭#pleasehelp"
+490759,dev,random,2,"Customer: What will happen to my remaining subscription time if I buy the £99 deal for a year?
+SpotifyCares: Hi there, thanks for reaching out! Once you subscribe to Spotify Yearly, the remaining Premium time on your current subscription will be applied after the 12-month period. Hope this helps. Let us know if you have other questions",@user This is so ridiculous ANSWER MY TWEETS
+1698050,dev,intent_balanced,0,,I can't get into my account. It says that I connect through FaceBook but when I try to connect it won't login.
+466824,dev,intent_balanced,0,,@user can you put Miss You already thank you I'm dying
+450893,dev,random,0,,Add “Pirates” to the This is: @user playlist RIGHT NOW!!!!
+694626,dev,intent_balanced,0,,"I have been paying $10.00 for a premium membership since July, and since then, I can't log in to my account. You don't have a phone number or email to reach. I will be contacting my bank to terminate payment if I don't get a response. Please get back to me ASAP!"
+699533,dev,intent_balanced,0,,how the fuck is possible that i see track lists adoring Charles Manson? i cannot even disable them. This is super disgusting
+534619,dev,random,4,"Customer: <url>
+Customer: But unfortunately it doesn't work for me. It says ""Sorry, couldn't find that"". Maybe it's not available worldwide. please could you fix it? I wanna listen to this interview
+SpotifyCares: Hey there! There might be some restrictions based on your current location, but not your Spotify account’s country. No worries, your feedback matters, and we'll have this passed on to the right folks. Let us know if you have more questions 🙂
+Customer: why it's not available worldwide ... @user is a global superstar lol #sad",@user @user I don't know what's wrong with it. I can't listen to it and I see some people can't do it too.
+620378,dev,intent_balanced,4,"Customer: How to request a song / album (origional album or artist) to upload in your library which is still not there . Please let me know via direct message or send me link. Waiting reply.
+SpotifyCares: Hi Adeel. Can you tell us more about the song or album you're referring to? We'll take a look backstage
+Customer: Following all song of: Singer. Kumar Sanu Movie. Aashiqui Song. Dheere dheere se meri (all songs) &amp; Movie. Sapne Sajan Ke Song. Yeh dua hai meri &amp; Movie. Gunda Mawali Song. Raju Awara Above mentioned songs are very famous. Plz upload and let me know. Regards
+SpotifyCares: Thanks for sending those over. We’d love to have all of Kumar Sanu's stuff available, but we have some info about content here: <url>","Said songs /albums are all free and easily available on every famous streaming service like Saavn, YouTube etc. Also on some mp3 songs websites"
+468349,dev,hard,1,Customer: Premium gives you unlimited skips. Get 3 months now for just $0.99. <url>,@user But yet Spotify can’t email me back when my account gets hacked🤔
+669353,dev,random,0,,"@user I reset my iPhone with iOS 11.1.2 and when I downloaded fresh Spotify app tried to log in, nothing happened when I hit the ‘log in’ or ‘create account’ button. Before it worked just fine. I have premium account and paying for it. Please provide solution."
+141134,dev,intent_balanced,3,"Customer: Unli skips. Unli fun. 3 months of Premium for ₱9. <url>
+Customer: i was charged 129 😤😤😤
+SpotifyCares: Hey there! Can you DM us your account's username or email address? We'll take a look backstage",@user Its so unfair!! The promo is for VISA cardholders only. 😑 How about us? Stop broadcasting incomplete details!
+565386,dev,hard,1,Customer: won't let me renew my Premium account! Sos,"Just for reference, I have tried both a Prepaid Visa AND a Mastercard, and yes I tried to cancel my Premium and re-join, but nothing works"
+507415,dev,intent_balanced,0,,"yo, DM'd you some details but I need help getting my account back."
+2963327,dev,hard,2,"Customer: Hi do you have any idea why my downloaded songs frequently skip when I play them from my phone? Literally sounds like a scratched CD. Kind of defeats the purpose, don't you think? Thanks for taking the time.
+SpotifyCares: Hey there! That's not cool. Does logging out, restarting your device, and logging back into Spotify help? Keep us posted","Appreciate the quick response, Team! I'll give those steps a try and report back."
+133935,dev,intent_balanced,0,,@user loving the Time Capsule playlist! Thanks! Assuming it’s a new feature #80sbaby
+568966,dev,hard,3,"Customer: Hi - can't use Spotify Connect. Speaker shows in device list - selecting it does nothing. Previously working. Still works on iPhone 7. My devices: OnePlus 3T (Android 8) Sonos Play:1
+SpotifyCares: Hey there! Can you let us know the exact Spotify version running on your device? We'll see what we can suggest
+Customer: It's 8.4.30.688 armV7. Thanks.","Same version, different Android phone (Moto G5), same problem."
+468342,dev,random,1,Customer: Premium gives you unlimited skips. Get 3 months now for just $0.99. <url>,@user ya'll should do a promo for people who have been paying for premium for years. where is my discount tho ?
+2848290,dev,random,0,,why don’t you have lyrics to song OR the ability to send to their users’ inboxes anymore? @user has lyrics to every song pretty easily...
+150671,dev,intent_balanced,0,,Hi! Sent you a DM.
+1778457,dev,hard,0,,"Hello, I saw an ad saying 99 cents for 3 months. I clicked on it and it took me to page where I logged in ( new user, never been activated for premium ). I was charged 9.99 on my credit card. __email__ is the email"
+1272289,dev,intent_balanced,0,,I’m having trouble with my family plan I’ve tried to add my girlfriend but it keeps asking her to re-enter our address.
+102225,dev,intent_balanced,0,,how long would it take for a pending charge to be cleared? Made a mistake on a subscription and my card was charged.
+639943,dev,random,1,Customer: listen. STOP REACTIVATING MY FACEBOOK ACCOUNT. DELETE MY OAUTH INFO,Everytime i contact support they screw this up and youre losing a customer for life at this point. I want my Facebook info gone. Completely fucking gone. I never ever ever want to receive a welcome back to Facebook email ever again after signing in to Spotify.
+115232,dev,random,2,"Customer: will you optimise spotify for galaxy note 8? And since I'm coming from iOS, can't you add gestures for ""queue"" and ""add to my songs,"" it's really useful
+SpotifyCares: Hey there! Thanks for the feedback. We'll make sure to pass your suggestion about the gestures on to the right folks. Are you having issues using Spotify on your Galaxy Note 8?",It's just not optimised for the aspect ratio of the phone
+25413,dev,intent_balanced,1,Customer: Unli skips. Unli fun. 3 months of Premium for ₱9. <url>,"@user Hi, could you help me with this ?"
+438396,dev,random,4,"Customer: I've done that, it hasn't been helping. I noticed it doesn't stay in offline mode either.
+SpotifyCares: Hmm. Does reinstalling the app help at all? You can follow the steps here: <url>
+Customer: I've tried that
+SpotifyCares: Got it. Just to check, do you have an SD card attached to your Samsung S8+? If so, could you try removing the SD card &gt; reinstalling the app &gt; reinserting the SD card to your phone &gt; resyncing your offline songs? Keep us posted",XD sorry I don't have one of those either.
+496128,dev,intent_balanced,0,,@user you really need to up your security because my account has gotten hacked 2 times today now... this is not okay!!!
+699499,dev,hard,0,,My account was charged after I cancelled Premium last month. What’s up?
+2920779,dev,intent_balanced,0,,@user is the only app in my phone that isn’t working right now and all I wanna do is listen to some @user
+93867,dev,random,2,"Customer: All of my @user downloads disappeared overnight, from both authorized devices. The Spotify support page on this subject suggests a few possibilities, none apply to me. That is a huge user experience problem.
+SpotifyCares: Hi Derek! Can you let us know your device, operating system, and Spotify version? We'll take a look under the hood","iPhone 8plus, iOS 11.1.2, 8.4.28.1104"
+552696,dev,random,0,,"I'm unable to reset my password. This is the error I get ""The CSRF token is invalid. Please try to resubmit the form."" Why can't anything from Spotify ever be easy?"
+576198,dev,intent_balanced,0,,Okay but when is Beyoncé’s lemonade album gonna actually be on Spotify?? You’ve been “working on it and hope to have it soon” for months thank u
+2913816,dev,intent_balanced,0,,any idea when the app will be fixed? It’s up to date and I’m using the iOS version. Logging out is no help.
+506012,dev,intent_balanced,0,,i live in canada but I'm paying in my home country in euros. It's both 9.99/month but let's be honest here...9.99 euros aint the same as 9.99 CAD. Can you help me change account settings?
+2921970,dev,intent_balanced,2,"Customer: I still wish the @user iPad app was more like the desktop version and not the phone version. It just looks and feels really bad to use. Not how you make a tablet app at all.
+SpotifyCares: Hey there! What's happening exactly when you're using the app on your tablet? Can you let us know its current iOS and Spotify versions? We'll see what we can suggest","Nothing is really “happening,” I just don’t feel like it’s a well-designed tablet app. It’s just a big phone app. The desktop interface would fit the iPad Pro much better."
+2929236,dev,hard,0,,you charged me a foreign transaction fee but i am noted correctly as in australia and the paypal youre charging to is australia? please explain #fraud
+511827,dev,random,0,,@user is there a way to import an OPML feed of my preferred podcasts to Spotify?Want to give Spotify a shot on my podcasts but don't want to spend all afternoon searching/selecting from inside your app; just want to import opml
+668717,dev,intent_balanced,0,,WHERE ARE RBD'S ALBUMS @user
+567985,dev,random,0,,Does @user have artist old mixtapes on it or just albums ?
+497732,dev,hard,0,,@user hello I believe my account has been compromised
+2917841,dev,random,0,,App isn’t working. Doesn’t matter if I’m on data or WiFi. Restarted my phone and updated. What’s going on?
+116618,dev,hard,1,Customer: All clear! Everything’s looking good again. Enjoy the tunes.,"@user I'm still having problems with upgrading to premium (promo 3 months for 9,99) on this moment. Can't seem to pay with paypal."
+812816,dev,random,0,,"@user @user hi. Hello, yes I have an issue with a song you had on spotify but is no longer there. Resolve asap pls"
+2892620,dev,random,0,,"Hey, I seem to be unable to unfollow a gone playlist. Can you take a look at <url> and tell me what to do?"
+2979775,dev,hard,4,"Customer: the PC is Windows, not sure about Chrome's version, but Spotify app for PC is latest coz i just installed it few days ago
+SpotifyCares: It'd help us a lot if you can send us your Windows operating system and the exact version of the Spotify app. You may send us a screenshot if you'd like. We'll be right here waiting
+Customer: here they are <url>
+SpotifyCares: Thanks for sending the screenshots. Is this also happening over WiFi, 3G/4G, or both? If on WiFi, is it a public or private connection?","its a LAN connection at office, but at my house with Wi-Fi has same problem. BTW the mobile app works fine"
+2861240,dev,hard,4,"Customer: Spotify keeps crashing i just wanna stream BTS peacefully
+SpotifyCares: Hi there, that doesn't sound good! Can you let us know the device, operating system, and Spotify version you're rocking? We'll see what we can suggest
+Customer: thanks spotify🙇 its a cellphone w/ android and i just upgraded to the premium ver. Already tried uninstslling/installing but it doesnt fix it😔😔
+SpotifyCares: Thanks. What's your Android version? Also, does restarting your device help at all?",It's a 6.0 and it doesnt😔😔
+149366,dev,random,0,,@user my premium status is no longer active. why is that?
+2844603,dev,random,2,"Customer: this is the SECOND time in two weeks all my music has disappeared wtf <url>
+SpotifyCares: Hi there! We're sorry to hear that. Check out the steps under “Downloads unexpectedly removed” at <url> They should help with this",y’all just fucking did it again <url>
+456845,test,random,0,,Hey can y’all activate my premium. Or can I have my money back?
+617821,test,hard,1,"Customer: Move the couch, it's time to dance🕺 Now playing Today's Top Hits <url> <url>","@user Put ""Is Your Love Enough"" on Today's Top Hits playlist, please ;;"
+1950476,test,random,0,,"Dear @user, please add “Secrets” By Gil Scott-Heron."
+516747,test,random,0,,So I’m looking at my Spotify account and I’ve noticed I’ve been charged multiple times but I only use Spotify on my desktop and that’s the free version? Can you help me out?
+438394,test,random,0,,"I signed up for a 60-day premium trial and was supposed to get 125 Gold Star code for Starbucks, but the code did not work. Can you send a working code please?"
+562460,test,intent_balanced,0,,hi. Trying to cancel. Wont accept my email when I ask for a password reset says log in with fb. When I do that it says I'm on free. I am definitely paying and receiving premium. Please help
+575703,test,hard,2,"Customer: Spotify username msolby. Spotify devotee. Can you help customer support solve my login problems. Days without music is no fun.
+Customer: I'll make sure someone reaches out.","@user @user Mr. Ek, there are fraudulent charges on my credit card from your company. I have been battling this situation since July. I have been unable to reach anyone in your company's customer service. I would very much appreciate some assistance."
+131823,test,intent_balanced,4,"Customer: I'll lose the downloaded data if I do that way :') I'll try it later, thanks! :)
+SpotifyCares: Hmm. You shouldn't lose your offline music when you restart. Don't worry, you can get back to us anytime 🙂
+Customer: I mean for when I log out 😂 thanks!
+SpotifyCares: Got it. You can try toggling off Offline mode before logging out and keeping your internet connection active before logging in. Also, as long you don't delete your cache, you won't lose offline music. We'll keep an eye out for your update",Sorry for the late reply! I've restarted my phone yesterday and the volume is fine now. What a simple fix lol oops 😅 Thanks so much!!
+129756,test,random,1,Customer: 3 meses de Premium por $ 9.00. Escucha tu música donde quieras. <url>,@user 9 pesos?
+2942685,test,intent_balanced,2,"Customer: None of my saved albums will play... Have had these kind of issues for weeks now.
+SpotifyCares: Hey there, we'd love to help! Are you getting any error messages? It would help if you can send us a screenshot",Is DM alright?
+582203,test,random,0,,why offer me spotify for £99 for a year on my homepage then say I'm not eligible when I try to sign up for it? #disappointing #poorservice #notcustomerfirst
+486954,test,intent_balanced,0,,hi! I just availed your promo 3 months for 9 Philippine peso but I was charged 129 pesos instead. Is this a scam?? I can DM the reference number <url>
+642106,test,intent_balanced,0,,can you put tere mere by amaal maalik on spotify
+506066,test,intent_balanced,0,,@user is it possible to reorganize songs in a playlist on android or desktop (PC)?
+115286,test,intent_balanced,1,Customer: 3 months of Premium is just $0.99. Play music offline wherever you go. <url>,@user Any deals for customers already on Premium? Maybe a student discount?
+2866608,test,hard,0,,Someone hacked my Spotify account of 5+ years and replaced all my saved songs with Dutch grime and xxxtentacion songs...uhmmm help? @user
+2959326,test,random,2,"Customer: Why has my app deleted all my downloaded songs today? 😖😭 This was the exact reason I switched from Apple Music... ¯\_(ツ)_/¯ 😑
+SpotifyCares: Hey Liam, sorry to hear that! Check out the steps under “Downloads unexpectedly removed” at <url> They should help with this",Thank you I’ll have a look
+2868817,test,random,0,,I upgraded to @user premium for family and it is confusing af and I hate it.
+497721,test,random,0,,I keep getting notifications on my phone when I listen to Spotify on my TV. I have turned notifications off but I still get them. How do I stop this?
+1843933,test,random,0,,@user whym'st is there no scroll bar on ios smh
+667155,test,random,0,,"i've been invited to join premium for family account, but cannot log in. never asks me for my code, just the first info page, then tells me there has been an error ??"
+2919334,test,random,3,"Customer: Something’s not quite right, and we’re looking into it. Thanks for your reports!
+Customer: Fix the android app, always get errors saying I need a connection to the internet.
+SpotifyCares: Hey, thanks for the report! We had a little hiccup earlier, but everything should be running just fine now",Unfortunately I've had that problem for a very long time.
+163715,test,intent_balanced,4,"Customer: I have been trying to create an account through my Facebook and when I click on ""create new account"" it says that ""We're experiencing difficulties. Please try again later"". This has been going on for a while.
+SpotifyCares: Hey Sara! Have you tried using an incognito window/private browser? Let us know how that goes
+Customer: It's still saying the same thing
+SpotifyCares: Got it. Can you tell us what internet browser you're using, does using another browser work at all? We'll be right here",I'm on Google chrome. And I originally tried to download spotify on my phone (which is an Android) but it still wouldn't let me create an account
+500933,test,intent_balanced,2,"Customer: Signed up for 1 yr premium, still showing it's going to charge for monthly on my account. Can you fix or explain? Thanks!
+SpotifyCares: Hey Marin! We can confirm you've successfully subscribed to the offer for 12 months for $99. Your subscription won't expire until the 17th of December, 2018. When your subscription expires, your account will then revert back to the monthly Premium billing. Hope this helps",That really does - thank you!
+653104,test,random,0,,"@user pleeeeease open in Kenya. Guy's are already accessing Spotify via VPN anyways, just the payment module is off. ASAP"
+2545282,test,intent_balanced,0,,"I'm pretty sure the project ""Here Be Dragons"" by the Kilimanjaro Darkjazz Ensemble got messed up over a month ago and it still hasn't been fixed. The tracks under that project in Spotify aren't actually the same tracks. <url>"
+622889,test,hard,0,,ok then for the past two years I haven't been able to use my premium account correctly I know there is someone using my account because half of the stuff on it is not mine. But trying to send an email to Spotify is impossible. Like sending one to Google support null
+2427730,test,random,4,"Customer: .. no it’s just not populating searches or search results. Music plays and sometimes accessing my playlists with no problem. It’s once I search that nothing populated and usually just the white loading circle or a black display.
+SpotifyCares: Got it. Have you tried logging out and back in to your account? Also, does restarting your device help at all?
+Customer: , yes I logged out and back in. I also logged out, restarted, and logged back in, but this didn’t help.
+SpotifyCares: Hmm. Best thing to try here is a quick reinstall. Just follow the steps at <url> Let us know how it goes","thanks! It worked for about 24 hours and upon another restart the searching or loading no longer works, but all other programs and apps are running just fine."
+2928149,test,random,0,,hi! I need your help guys.
+649927,test,intent_balanced,0,,"@user DM me, I have a customer support question!"
+2948888,test,random,3,"Customer: Remember that time @user spit this Christmas classic? The official version is finally here. <url> <url>
+Customer: How come I can no longer share directly from my app to Twitter or Facebook?
+SpotifyCares: Hey Leyla! Help's here. Could you let us know your device, operating system, and Spotify version? A screenshot of what's happening whilst trying to share would be helpful too /Q",Ok! That's a lotta work... it will take me a few.
+654574,test,hard,0,,"my old Facebook account was hacked and I got locked out of it, that Spotify premium was linked to. Is there a way to transfer the membership to my new account?"
+568896,test,random,2,"Customer: Why did you stop with showing the lyrics. I was so disappointed to find them gone, is there a good reason why?
+SpotifyCares: Hey Anka! You can get lyrics and annotations on selected tracks on the mobile app via our partnership with Genius. There's more info here: <url> Let us know if you have any questions","That's a pity, I only listen to Spotify on my laptop at home with good speakers. During the day I'm working as a taxi-driver, can't sing along with the songs than, don't think the passengers would enjoy it. Especially when I'm the only one hearing the music through my earphones."
+471649,test,intent_balanced,0,,Spoke too soon. @user <url>
+2133712,test,intent_balanced,0,,I need help logging into my Hulu account with my Student Spotify Premium! Can you please verify my info so I can access my Hulu?
+2866635,test,hard,2,"Customer: where is reputation?
+SpotifyCares: Hey Zach! Taylor Swift's 'Reputation' isn't available to stream just yet! For now, check out the singles: <url>",when will it be available ??
+2959346,test,random,0,,"Have users logged into my account, playing music from different devices in spanish, user name same as twitter handle. Can't reset pw (500 error), please help."
+642136,test,random,1,"Customer: Hi, I need to update my payment details for Premium. Even though 1pg of my account says I have regular Premium, when I update my payment details, it still thinks I'm trying to pay for Student, and can't verify that I'm a student, because I no longer am.",Please help. I don't want to have to cancel my account. I just want to pay $10 monthly for regular Spotify Premium. I think this glitch is happening because I originally signed up as a student but then upgraded to regular.
+2898300,test,random,2,"Customer: HEY @user STOP AUTO-FOLLOWING THIS LAME ASS PLAYLISTS WITH SHIT I WOULD NEVER LISTEN TO!! DAMN! I'M TIRED OF THAT SHIT!! STOP!!!!!!!!
+SpotifyCares: Hey, that's not cool! To turn off suggested songs, head to your Settings &gt; Scroll down &gt; Find Autoplay and click it. Additionally, adding more then 15 songs in a playlist should do the trick. If you need anything else, we're only a tweet away","okay. i clicked the auto-play off. as for the playlists with more than 15 songs, that shouldn't make a difference. i have short playlists, do i need to delete those now?"
+2842,test,intent_balanced,1,Customer: Unli skips. Unli fun. 3 months of Premium for ₱9. <url>,"@user Please check my DM, same concern as with others charged for 129.00 instead of 9.00 as promoted."
+486930,test,intent_balanced,0,,I had to cancel the debit card on file for my premium account. How do I update the information for my new debit card so that my premium service is not interrupted? I do not have an email from you guys in my inbox.
+2836375,test,intent_balanced,3,"Customer: Zero ads. All music. Get 3 months Premium for ₱9. <url>
+Customer: can you just merge Spotify accounts?
+SpotifyCares: Hey Daley, help's arrived. Can you send us all your accounts' email addresses or usernames via DM? We'll see what we can do",The account is Facebook connected.
+2164331,test,random,0,,@user this sh*t #FirefoxWebplayer #mozilla is draining my bat 4 life taking over my music by yoga on the background pls fix t #ASAP. wonder if they have these issues @user @user <url>
+1736627,test,intent_balanced,0,,@user the more I notice more music being unavailable when it was available really upsets me and makes me want to switch to @user #sorrynotsorry
+2249496,test,random,0,,@user i have recovered my account ! thank you very much to Karl for the very quick support 💓
+481118,test,intent_balanced,0,,Thumbs up for excellent #CustomerService 👍| @user #spotify
+2961989,test,random,0,,"I can't log into Spotify via my Facebook account - ""You don't have an account set up with these Facebook credentials. Sign up for one now."" I try to sign up for one, but my email is already used. I need to have my email and/or Facebook account removed."
+2950127,test,random,0,,@user whats the presale code for brad paisley concert for bemidji mn
+97671,test,intent_balanced,0,,"Yo when will the shuffle finally get fixed. I'm so done with this like other thousands of people and after 2,5 years there is still no fix. Is there a fix coming in the short term or do we really need to start using other services, cause tbh i like sportify way more"
+551299,test,intent_balanced,0,,"@user ""can't play the current song"" every song"
+2864071,test,random,2,"Customer: When you want to listen to a single artist's album &amp; @user starts slipping in other artists/songs 😡who does it think it is, @user? I buy premium Spotify specifically to avoid this! #spotify #music <url>
+SpotifyCares: Got it. Just to clarify, are you getting suggested tracks in the middle of listening to the album, or just at the end of the album? We'll be on the lookout for your reply","I usually play the albums on shuffle so not sure, but I've only recently started having this problem. Normally even after all the songs have shuffled through, the album just replays."
+2603339,test,random,0,,@user I'm trying to cancel my premium but according to my account I don't have it but on my app it says I do. Help? <url>
+2824398,test,hard,2,"Customer: So @user how many ads one after another is enough? I had at least 4 ads so far, i wonder if I’ll ever hear music?
+SpotifyCares: Hey there! Thanks for your feedback - we'll pass it on. For now, check out <url> if you haven't had a subscription before 🙂","I already tried this trial deal, and ever since it ran out Im having 4-5 ads them a song then another chain of ads. Not the way it should work. And on top of it, when I listen to ads that should give 30 min ad free, I still get ads after. Horrible experience so far."
+2902828,test,intent_balanced,4,"Customer: How is Toni Basil’s “Mickey” not on @user?
+SpotifyCares: Hey Gail! Just to check, what country is your account set to? We'll take a look backstage
+Customer: I have a US premium account.
+SpotifyCares: Thanks. We'd love to have all the world's music available, but we have some info about Spotify content here: <url>",thanks for the info!
+2219849,test,random,1,Customer: Hey what do I do if I think a band has an album listed under them on your service that isn’t actually them?,<url> Falling Up has been defunct since 2016 and they are also not Russian.
+2831206,test,random,0,,@user I'm a student who who already has hulu at the No Commercials Plan @ $11.99/mos. How can I take advantage of the Premium Spotify offer for students where it's included with the basic Hulu package w/out interfering with my current Hulu package?
+513059,test,intent_balanced,2,"Customer: you offered me a prepay $99 for a year of premium promo, but when I visit the link there is no where to pay... help? :)
+SpotifyCares: Hey Charlie, help's arrived! Does signing up through an incognito/private browser help? You can sign up for the offer here: <url> Let us know how it goes",That link worked! Thanks!
+647125,test,hard,1,"Customer: Hey, I can't buy premium :(","Each time I click on ""Pay with paypal"" it get me back to the offer page :/"
+172466,test,intent_balanced,0,,"@user Hello, I really hope u guys put ""mic drop"" in one of most popular playlists ✌🏽❤️"
+1736619,test,random,3,"Customer: Spring over lige så meget, du vil, med Premium. Få 3 måneder nu for bare kr 9,00. <url>
+Customer: Will Spotify ever be available on Apple TV?
+SpotifyCares: Hey! We don't have any news to share about Apple TV right now, but you can vote for the idea here: <url>",@user What’s the point when you have 4000 votes from 4 years ago and you haven’t done it. Shows you guys don’t really look at the votes. Just there to make customers feel like they are involved but clearly not.
+100145,test,random,2,"Customer: I keep getting the message ""cannot play ... the connection to Spotify was lost"", what's going on?
+SpotifyCares: Hey Anthony, the cavalry's here! Does logging out, restarting your device, and logging back into Spotify help? Keep us posted","Thanks guys, sorted"
+2201050,test,intent_balanced,0,,@user pls tell me your plans about india are u going to launch here or not m keenly waiting for it to available in india
+2986555,test,hard,2,"Customer: I want to know how to use spotify with the premium feature. So how? Answer?please? @user
+SpotifyCares: Hey Mylene! You can find all the info you need about the Premium features at <url> Hope this helps",Thank you :*
+2846493,test,intent_balanced,2,"Customer: Hi
+SpotifyCares: Hey there! Is there something you need our help with? If so, let us know and we'll take a look 🙂",@user here needs help :)
+684938,test,intent_balanced,0,,@user WHY do my offline playlists and albums suddenly need re-downloading every other day? It's wiping my data and costing a bomb. Not happy at all. I'm not the only one - <url>
+639958,test,intent_balanced,0,,why is acid rap not on @user??? 🙃 lil chano pls @user
+2913922,test,random,0,,@user I'm not happy. I can't play one of my favorite songs when it's clearly on Spotify. Is it because I'm UK? I'm pretty sure that's not fair... #Spotify #HelpMe <url>
+2902806,test,random,2,"Customer: .@user You NEED to work on your Discover algorithm...constantly listening to jazz covers of Radiohead songs does NOT mean I want to hear *reggae* covers of Radiohead songs!!!
+SpotifyCares: Hey Bobby. Discover Weekly is based on what you, and others like you, are listening to. Hopefully it’s more in tune with your tastes next week!",Offended by the insinuation
+2520080,test,intent_balanced,0,,@user there's just one album from legendary Karate <url> WHY?
+2972087,test,intent_balanced,0,,Its so annoying that you cant block ppl from following you on @user. A request that loads of ppl have complained about for years and still no change.
+453442,test,hard,0,,"Hey, @user, you mind telling me why I haven't been able to log in to my account and listen to my music for almost two weeks? I have NOT changed my password and I'm on automatic payment."
+128851,test,random,0,,it's 2017 why do I have a 3333 offline song limit on my spotify? Do you really want @user to get that 9.99 a month off me? Ps pls emulate their local files synching.
+116575,test,hard,0,,Can you please help me? My account got hacked!
+2972948,test,intent_balanced,2,"Customer: Hey @user wheres 1999 by Joey B ive been waiting for 3 years fam #notlit
+SpotifyCares: Hi Liam! We’ve got some info about mixtapes here: <url> Let us know if there's anything else you'd like us to check out",Thanks fam u sending #goodvibes up in this #house
+2916636,test,random,0,,"hi, just to let yous know that the search bar isn’t working, also i pay for premium and my offline music keeps getting deleted everytime I open the app. Not so good."
+2848344,test,intent_balanced,2,"Customer: Hey why won't Spotify import my iTunes/Apple Music playlists? It just creates an empty folder! (Using Mac and most recent versions for everything)
+SpotifyCares: Hi Laura! Don't worry, we'll sort this out. Can you let us know the exact OS X and Spotify app version on your computer? We'll see what we can suggest",You’re too late I’m afraid. Already got it working now.
+490763,test,random,0,,@user mau nanya promo yg 3 bulan 50k itu kalo bayar pake XL ada minimum pulsa gak ya? krn pulsa saya pas 50k tp pas udh masukkin pin katanya saldonya kurang. <url>
+551316,test,random,0,,"Hey, on the explicit version of FFDP's A Decade of Destruction the track Under and Over It is definitely edited for explicit content. So far that's the only one I've found but I'm still listening to the album."
+147420,test,intent_balanced,0,,Nothing working Spotify you really need to take care of this
+2938714,test,random,0,,"i'm from Indonesia, is the offer ""3 months premium for 49.990"" available with mobile carrier payment? thnks. <url>"
+660568,test,intent_balanced,0,,@user i need help. pls dm
+649912,test,random,0,,@user what's it called when you take someone's money and don't provide service? Cause you'd be on my case if I didn't pay my monthly bills so why can you not give me what I paid for
+64367,test,hard,0,,@user why have you charged me £14.99 on the 18th of November as I upgraded my subscription and @user why have you then charged me £9.99 on the 26th of November for a standard premium spotify account. @user SORT OUT A REFUND ASAP!!!!
+131819,test,intent_balanced,0,,"why in the world is the volume low on my Spotify for Android? The loudest is still pretty low in volume! Please fix this! My Google Play Music's volume is fine, and it's on the same phone. This is incredibly annoying"
+174612,test,random,0,,@user when will you put got7s albums in there?
+2913930,test,random,0,,I cant do anything! Login/logout doesnt work either <url>
+458080,test,hard,0,,My credit card is being used to charge a monthly subscription with out my permission. Please contact me ASAP! this is fraud!
+2857442,test,random,0,,"I'm trying to update my premium payment and I just get this loading page, what's the story? <url>"
+2818182,test,intent_balanced,0,,"Hi, my account has been hacked - email address and password changed. I need to revert this back ASAP. I received the email about the change 1 hour ago"
+2819562,test,hard,0,,"Do you really? Why is there no Disconnect from Facebook button, why do we need to 'log a ticket'. Good luck with GDPR."
+2896723,test,random,0,,just sign up for the premium after Logging in seem is not can’t play any song like .
+381245,test,intent_balanced,1,Customer: Zero ads. All music. Get 3 months Premium for ₱9. <url>,@user Can I use my load balance for this? Really just debit credit cards?
+155383,test,random,0,,"In @user , if the about:config flag ""media.autoplay.enabled"" is set to false then the @user webplayer will NEVER work This flag is important to stop nasty web sites that bombard users with videos or ad-videos the user has no control over Please fix, I refuse to disable flag"
+700406,test,intent_balanced,0,,"hi just signed up to premium. My mobile network has just given me premium free for a year though, do I have to cancel my paid account and start a new account to get the free one from my network or can I keep same details"
+23273,test,random,1,Customer: 3 months of Premium is just $0.99. Play music offline wherever you go. <url>,@user I have Spotify premium -it won't work on phone just iPad. Very annoying! I've contacted you many times - no resolution.
+2853010,test,intent_balanced,0,,@user Do you ever reply to emails? Been waiting 4 days for reply
+539172,test,hard,2,"Customer: If I'm on android how do I control the volume through the app? I dont want to use my phones volume buttons. I want Spotify to play in the background of @user and have both play audio
+SpotifyCares: Hi Keith! Right now, the mobile app's volume can be controlled via your device's volume buttons. Also, if you run another app or site that requires audio, Spotify will pause the music. Hope this clears things up",All of this is exactly what I do not want to happen
+654576,test,intent_balanced,4,"Customer: I can’t tap my Playlists option. It only shows when I swipe down. <url>
+SpotifyCares: Hey Sonya, we're here to help! Can you let us know your device, operating system, and Spotify version? We'll see what we can suggest
+Customer: IP7 plus, IOS 11, Latest Spotify version
+SpotifyCares: Thanks! Can you try logging out, restarting your phone, and logging back in? Any better?",Worked 🤙🏾 Thanks!
+620370,test,hard,1,Customer: My @user Discover Weekly playlist is full of J-Pop. What have I been listening to recently to cause that?!,"@user In it's defence, I did enjoy the tracks 🤔"
+494221,test,random,4,"Customer: Listening to podcasts, normal playback for several minutes before jumping to the next track. Tried reinstall, no change. Premium account.
+SpotifyCares: Hi Rachel! The cavalry's here. What device, operating system, and Spotify version are you using? We'll see what we can suggest
+Customer: iPhone 7s plus, iOS 11.1.1, Spotify updated this morning to 8.4.28.1104. Experiencing both using Bluetooth in my Toyota Corolla and played directly on device.
+SpotifyCares: Thanks. Can you try restarting your device, then log out and back in? Let us know how it goes",Seemed to be okay for a longer duration but still skips ahead.
+2953014,test,random,2,"Customer: hi, how can I download the artwork with the Spotify code from my phone? I could do it using the website <url> before, but it's not working anymore, now only downloads de code.
+SpotifyCares: Hi Ben, help's here! Does using a different browser help? You might also want to try using an incognito window. Let us know","I tried w/ a different browser, but I can't, not sure what's wrong. This is all what I get using the website. I like to share the artwork w/ Spotify code on my social media, I don't think I'm sharing again until you guys solve this ;( <url>"
+2825209,test,random,0,,"@user Stop-start probs with Spotify on my laptop. So FRUSTRATING &amp; paying premium. Tried loging out &amp; back in turned laptop off &amp; back on. #loveSpotify so much, on 12 Dec last year #Spotify advised I listened for 52,909mins in 2016. I guess same this year. Please HELP me!"
+2855899,test,random,0,,Hi . I just noticed that I all of a sudden am on the premium family subscription? How? it might have something to do with the fact that my account was being streamed from an unfamiliar device earlier this month. Can u switch me back to 9.99/mo
+124841,test,intent_balanced,3,"Customer: Unli skips. Unli fun. 3 months of Premium for ₱9. <url>
+Customer: You broke my heart. You didn't post it's only available under credit card txns.
+SpotifyCares: Hi Daryll! You can use your mobile carrier to get the promo, but you would get the 129 PHP for 3 months offer. To get the offer for 9 PHP, you'll need to use a recurring payment method like a credit/debit card or PayPal. Let us know if you have any other questions",@user how to get the promo 129php for 3months?
+95800,test,intent_balanced,0,,could you help me
+2869,test,random,0,,"why is this album on Spotify if it's not playable? It would be super if was available, THIS IS #2NE1 playlist would be complete if it had all the songs from their first mini album <url>"
+468369,test,hard,0,,"@user i has been processed for subscription spotify student but i cancel before finished the transaction,and my debit has been paymented for that. Can i refund for my money?"
+2846486,test,hard,4,"Customer: no one in India should buy or choose Spotify @ first place #Spotify @user @user #annoyed #pissed #CustomerService #NPR #CustomerExperience #CustomerSuccess #ridiculous
+SpotifyCares: Hey there! Could you let us know what happening exactly? Keep us posted
+Customer: I am having a US Spotify account, I am in India traveling fora while. and because of this situation I am not able to play music on my Spotify !!
+SpotifyCares: Can you DM us your account's username or email address? We'll take a look backstage",_manny24 is my username. I would prefer not disclosing my email details here
+2699550,test,random,0,,"hey im trying to remove a few of my old releases, they are on discontinued labels. But i no longer have contact with the people running it. How would i do this?"
+467609,test,random,0,,"urgh, is there some way to get @user to stop recommending finnish music in discover weekly and release radar?"
+539169,test,random,1,Customer: No @user I want my fucking music :( my library has been taken😢😢😢😢😢😢 how am I suppose to pregame jam! <url>,"@user I got it back, but shit still. Lol"
+123472,test,random,0,,"Hey @user, can I block certain artists? I don't want to listen to artists who are continuously violent to women."
+526685,test,hard,1,"Customer: I need help getting back into my acct. My username is two part, the official part being auto generated and I do not recall it",Please email me at __email__
+2927401,test,intent_balanced,0,,"Hi Spotify, I've sent you a dm. Please check 😊"
+2925991,test,random,0,,@user Is there a way to add our Podcast to the list of Podcasts on Spotify?
+2816727,test,random,1,Customer: Keep the flow with ad-free music. Premium is just 0.99 CAD for 3 months. <url>,@user Why can’t I play my welcome mix at home ?
+565413,test,hard,0,,@user My account has been hacked - what to do?
+2865473,test,intent_balanced,0,,@user hey guys I got an idea for a feature! Can you put on their to show us how many times we have listened to a certain song? It could really help when it comes to clearing up playlists and more. Thanks!
+492422,test,hard,0,,"somebody else was using my account bc i could see their device playing so i changed my password, but i think they also tried to reset the password bc i received another password reset email that i didn't request. HELP lol"
+2837833,test,hard,2,"Customer: I wouldn't have to ask this all the time if @user would reconfigure my Discover Weekly to include anything decent. <url>
+SpotifyCares: Hey Marky! To keep Discover Weekly fresh, keep listening to more of your favourite tunes. This will mix things up","I'm giving it all she's got, cap'n!"
+77699,test,random,1,Customer: 3 bulan Premium hanya Rp 4.990. Putar musik offline di mana saja. <url>,@user Is it true? Only 4990 rupiahs? Not 49900?
+2920615,test,random,4,"Customer: Dumb
+SpotifyCares: Sorry to hear you feel that way. What's happening exactly? We'll see what we can suggest
+Customer: Nope I purposely deleted it bc no one is helpful. Isk why I pay for your services
+SpotifyCares: We understand. If you need our help for anything, just let us know",I’m unsubscribing and going back to Apple Music.
+160513,test,intent_balanced,0,,"I'm trying to join my Premium For Family subscription, but I keep getting, error 600. Moved countries since last sub, and my profile is stuck on 🇬🇧, can't change to 🇩🇪. Any advice?"
+568928,test,random,0,,"Is @user going to do the ""Year In Review"" like they used to this year? Or am I leaving Gambino on repeat to pad my numbers for no reason?"
+2929214,test,hard,1,Customer: How do I request songs be added to @user tho,@user I need at least 3 to complete my playlist this is vital
+2859063,test,hard,0,,I was listening to music all of a sudden I connected to a device I've never seen before and the songs are changing live on my phone app. Is my account compromised?
+2881639,test,random,2,"Customer: Can @user add lil peeps music so my premium is worth or nah?
+SpotifyCares: Hey there! We’d love to have all of his stuff available, but we have some info about content here: <url>",It'd be cool to at least be able to find local files on mobile
+133961,test,random,1,Customer: 3 bulan Premium hanya Rp 4.990. Putar musik offline di mana saja. <url>,@user Jadi ini 4990 u/ yg baru mnggnkn spotify premium dgn pmbyrn mnggnkn krtu kredit tdk brlku u/ potong pulsa.
+2883730,test,random,0,,"@user so shitty that I can’t get into my account, the reset link won’t send to my email. 😒"
+666368,test,random,0,,"Hey @user It would be great if the user could undo the 'thumbs up""/""thumbs down"" choice on a Radio Station item. <url>"
+488811,test,random,0,,"hi, I just signed up to premium and you've charged me 0.01p can u confirm info have the 3 months for 0.99p please?"
+572080,test,intent_balanced,0,,@user Your app is controlling playback by itself. Will be downgrading this afternoon and deleting if it peresists. Thanks.
+631994,test,hard,2,"Customer: Heyyyy guys what’s been going on with the app lately? I’ve been experiencing that it just stops in the middle of a song multiple times. So have my friends.
+SpotifyCares: Hey there! Can you let us know what device, operating system, and Spotify version you're running? Also, does this happen with any specific songs?","iPhone 6s, latests ios and no particular songs. <url>"
+83706,test,intent_balanced,1,Customer: Zero ads. All music. Get 3 months Premium for ₱9. <url>,@user Hi! I sent a DM
+79453,test,random,1,Customer: 3 months of Premium is just 99p. Play music offline wherever you go. <url>,@user Why can’t virgin mobile users subscribe.
+118841,test,intent_balanced,2,"Customer: when is your amazing app going to get released in South Africa? Is it going to be released in South Africa?
+SpotifyCares: Hi there! We're launching regularly in countries around the world. Sign up here to be first to hear: <url> If there's anything else, just give us a shout",Thank you for the useful information 👍😁
+689528,test,hard,2,"Customer: why did you delete all the songs in 4am comedown 😭 why didn’t you just rename it 😭 why are there only 50 songs in the playlist 😭 <url>
+SpotifyCares: Hey there! Can you give us more info on what's happening exactly? Can you send us a link to the playlist? We'll see what we can suggest",The playlist used to be called ‘4am Comedown’ but you changed the name to ‘The Wind Down’ (lol) but all the songs from 4am Comedown have disappeared and now there are only 50 new songs 😭 did you remove all the songs from the 4am comedown’ playlist 😭 I didn’t get to save them 😭
+2201042,test,random,0,,@user You guys have the worst user interface on pc and mobile. You can't find your way to a specific album or song without having to dig through all the folders. I listen to pretty much the same songs all the time but it still takes like 6 clicks just to play a song.
+2577745,test,random,3,"Customer: Met Premium sla je onbeperkt nummers over. Geniet nu 3 maanden voor slechts €0,99. <url>
+Customer: Misleidende reclame
+SpotifyCares: Hey! We can help out in English via Twitter, but we also have Dutch support via email at <url>","Misleidende reclame in Nederlandse taal, antwoord in Engels....nog meer verwarring en doorlinken??"
+2933218,test,intent_balanced,4,"Customer: Is there a way I can stop Spotify from making a radio for every single thing that I play? Like I'll go to click on my playlist and I'm like wait this isn't on my playlist. And then I realise oh shit fam it's a radio
+SpotifyCares: Hey there! Are you currently on Free or Premium? Also, are you hearing the different artists in between tracks or at the end of the playlist? We'll check things out for you
+Customer: I’m on free because premium cost money and like I listen to a playlist with numerous artists and then it creates a radio for it which confuses me because I don’t read which one is which.
+SpotifyCares: Thanks. We're afraid Suggested Tracks will play when listening to an album or playlist as it's part of our Free service: <url> You can check out <url> if you haven't had Premium before. Give us a shout if there's anything else",Okay yep sorry but I explained myself poorly. After listening to a playlist it will create a radio for that playlist. That radio plays other artists and tracks. So I’m wondering if I can delete those radios. I hope that’s better
+2219833,test,intent_balanced,0,,"hi please kindly check my dm to you, thank you!"
+2785004,test,intent_balanced,0,,Opened up @user before getting on a plane and it said all the songs I downloaded are gone? What gives?
+2913812,test,intent_balanced,4,"Customer: You gotta love @user ads <url>
+SpotifyCares: Hey there, help's here! Does logging out &gt; restarting the device &gt; logging back in help? Keep us posted
+Customer: That doesnt fix, it has been doing it on the web version and the app for awhile. The ad lengths are random but this is the longest ive seen.
+SpotifyCares: We see. Could you try a quick reinstall fo the app for us? Just follow the steps here: <url> Let us know if this helps",I have reinstalled but I am still getting very long ads
+564515,test,intent_balanced,0,,someone has hacked my spotify account. I refuse to pay for someone else to listen to music. It is very unprofessional that you do not provide a contact number. I had to make a Twitter account just to complain. Please contact me immediately and fix the problem.
+550055,test,intent_balanced,2,"Customer: yes plsssss 😫😫😫 <url>
+Customer: they keep taking one by one down i didn't pay for this 😖",@user true omygosh i thought its only for a day but then i noticed that it doesnt come back pls bring it back 😔
+599480,test,random,0,,hey @user you gonna release my most listened songs for 2017 soon? cause I gotta know if I was more emo than last year
+689585,test,random,0,,"@user I am paying the full amount each month but I am a student with a NUS card, am I able to have this applied please? #student#music"
+462651,test,intent_balanced,0,,got mineeeee. yiz <url>
+113856,test,hard,1,Customer: Premium gives you unlimited skips. Get 3 months now for just 99p. <url>,"@user This is ridiculous, I’ve tried to pay for this through PayPal but somehow the payment doesn’t go through and let me get this offer 😕"
+171094,test,random,3,"Customer: just got super buggy after the last update. Can't play any songs from album-only view #PleaseFixItQuickly 💚💚💚 #ITurnedItOffAndOnAlready
+SpotifyCares: Hey! Could you let us know the device/OS you're using? Keep us posted
+Customer: Hi! I am using Spotify v1.0.68.407.g6864aaaf on macOS Sierra 10.12.6 - it happens when I click on an artist and select a specific album to play a specific song from (it doesn't play at all).",It seems that it works again now. I was previously streaming music while connected to the university network with an ethernet cable. Now outside. Thanks for the quick reply guys 🙂
+2764550,test,hard,1,Customer: Lewati tanpa batas dengan Premium. Dapatkan 3 bulan Premium kini hanya Rp 4.990. <url>,@user Can't sign up via email. Why?
+2819530,test,random,2,"Customer: this is still an issue help <url>
+SpotifyCares: Hey! You can find Your Time Capsule at <url> We'd also suggest following it to keep it saved 🙂",I use spotify every day and this is the message i’ve been getting every time i’ve clicked the link in the past two months <url>
+44348,test,intent_balanced,1,Customer: Zero ads. All music. Get 3 months Premium for ₱9. <url>,@user Hi! How can I avail this promo? :)
+2819531,test,random,0,,this is still an issue help <url>
+649883,test,intent_balanced,0,,thank u for not accepting my credit card :) i even had to make a second account and try again and nothing works. i am so annoyed right now. help.
+492382,test,hard,2,"Customer: all my ads are in German how do I fix this?
+SpotifyCares: Hey Kalie, we'd love to look into this for you. Can you send us your account's username/email address? We'll check backstage",My username us kalie.filice the email is __email__
+438426,test,intent_balanced,0,,having issues with premium not working for my account on mobile device

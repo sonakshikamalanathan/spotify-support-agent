@@ -1,0 +1,20 @@
+{
+  "_note": "Weak labels for the simple baseline: each k-means cluster (reports/intent_clusters.md) mapped to the intent most of its examples belong to. Mixed clusters (15, 13, 2, 5, 17, 21, 18) are left unmapped and excluded from training.",
+  "11": "content_catalog",
+  "22": "playback_technical",
+  "4": "billing_subscription",
+  "3": "playback_technical",
+  "6": "account_access",
+  "9": "playback_technical",
+  "0": "playback_technical",
+  "19": "thanks_resolved",
+  "20": "playback_technical",
+  "7": "billing_subscription",
+  "1": "content_catalog",
+  "10": "billing_subscription",
+  "8": "playback_technical",
+  "16": "thanks_resolved",
+  "12": "account_access",
+  "23": "feature_feedback",
+  "14": "dm_followup"
+}

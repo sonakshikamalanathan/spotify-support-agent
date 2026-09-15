@@ -1,0 +1,18 @@
+# secrets
+.env
+kaggle.json
+
+# environments
+.venv/
+__pycache__/
+*.pyc
+
+# raw data is large and re-downloadable; processed brand subsample IS committed
+data/raw/
+
+# editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.streamlit/secrets.toml
