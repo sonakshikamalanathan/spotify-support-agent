@@ -1,0 +1,559 @@
+{
+  "split": "dev",
+  "n": 50,
+  "intent_confusions": [
+    {
+      "gold": "feature_feedback",
+      "pred": "content_catalog",
+      "count": 2
+    },
+    {
+      "gold": "account_access",
+      "pred": "playback_technical",
+      "count": 1
+    },
+    {
+      "gold": "billing_subscription",
+      "pred": "account_access",
+      "count": 1
+    },
+    {
+      "gold": "account_security",
+      "pred": "account_access",
+      "count": 1
+    },
+    {
+      "gold": "billing_subscription",
+      "pred": "dm_followup",
+      "count": 1
+    },
+    {
+      "gold": "content_catalog",
+      "pred": "feature_feedback",
+      "count": 1
+    },
+    {
+      "gold": "content_catalog",
+      "pred": "playback_technical",
+      "count": 1
+    },
+    {
+      "gold": "content_catalog",
+      "pred": "other",
+      "count": 1
+    },
+    {
+      "gold": "dm_followup",
+      "pred": "account_security",
+      "count": 1
+    },
+    {
+      "gold": "dm_followup",
+      "pred": "other",
+      "count": 1
+    },
+    {
+      "gold": "playback_technical",
+      "pred": "feature_feedback",
+      "count": 1
+    },
+    {
+      "gold": "playback_technical",
+      "pred": "thanks_resolved",
+      "count": 1
+    }
+  ],
+  "intent_confusion_examples": [
+    {
+      "conv_id": "552673",
+      "customer_text": "@user @user having some issues with the Spotify auth API, getting status code 500s when making login requests, we're a team of three, an hour away from demoing our location-based music app, please help! We might actually have a chance to win prizes! \u2764\ufe0f\ud83d\ude2d#pleasehelp",
+      "context": "",
+      "intent": "account_access",
+      "pred_intent": "playback_technical",
+      "confidence": 0.96,
+      "should_escalate": false,
+      "escalation_reason": "none",
+      "escalation_reasons": "",
+      "reply": "Hey! We hear you. Since this is an API issue, could you DM us the specific error details? We'll take a look to see how we can help you get ready for your demo!",
+      "judge_overall": 5,
+      "judge_rationale": "It correctly requests error details via DM, aligning with the standard support approach."
+    },
+    {
+      "conv_id": "490759",
+      "customer_text": "@user This is so ridiculous ANSWER MY TWEETS",
+      "context": "Customer: What will happen to my remaining subscription time if I buy the \u00a399 deal for a year?\r\nSpotifyCares: Hi there, thanks for reaching out! Once you subscribe to Spotify Yearly, the remaining Premium time on your current subscription will be applied after the 12-month period. Hope this helps. Let us know if you have other questions",
+      "intent": "dm_followup",
+      "pred_intent": "other",
+      "confidence": 0.92,
+      "should_escalate": true,
+      "escalation_reason": "high_frustration",
+      "escalation_reasons": "llm:high_frustration",
+      "reply": "Hey there! We're here to help. Could you send us a DM with a bit more detail about what's going on? We'll take a look and get back to you.",
+      "judge_overall": 4,
+      "judge_rationale": "The reply asks for more detail via DM, a suitable response to the vague complaint."
+    },
+    {
+      "conv_id": "466824",
+      "customer_text": "@user can you put Miss You already thank you I'm dying",
+      "context": "",
+      "intent": "content_catalog",
+      "pred_intent": "other",
+      "confidence": 0.95,
+      "should_escalate": false,
+      "escalation_reason": "none",
+      "escalation_reasons": "",
+      "reply": "We hear you! We'll make sure to pass on your feedback to the right folks. Stay tuned for updates at <url>",
+      "judge_overall": 4,
+      "judge_rationale": "The reply acknowledges the request for the song, promises to pass feedback, and provides a link for updates\u2014appropriate and on\u2011brand."
+    },
+    {
+      "conv_id": "450893",
+      "customer_text": "Add \u201cPirates\u201d to the This is: @user playlist RIGHT NOW!!!!",
+      "context": "",
+      "intent": "content_catalog",
+      "pred_intent": "feature_feedback",
+      "confidence": 0.93,
+      "should_escalate": false,
+      "escalation_reason": "none",
+      "escalation_reasons": "",
+      "reply": "Hey! Our Curation team are independent & use taste, data, research, and trends to create playlists, but we\u2019ll pass on your suggestion \ud83d\ude42",
+      "judge_overall": 5,
+      "judge_rationale": "The reply mirrors the reference response, politely declines the suggestion, and stays on\u2011brand."
+    },
+    {
+      "conv_id": "694626",
+      "customer_text": "I have been paying $10.00 for a premium membership since July, and since then, I can't log in to my account. You don't have a phone number or email to reach. I will be contacting my bank to terminate payment if I don't get a response. Please get back to me ASAP!",
+      "context": "",
+      "intent": "billing_subscription",
+      "pred_intent": "account_access",
+      "confidence": 0.94,
+      "should_escalate": true,
+      "escalation_reason": "payment_dispute",
+      "escalation_reasons": "llm:high_frustration",
+      "reply": "Hey! We don't have phone support, but we can help here. Since this needs account details, we just sent you a DM. Please check your inbox so we can look into your login issue.",
+      "judge_overall": 3,
+      "judge_rationale": "The reply claims a DM was sent, which hasn't happened, introducing false information; it partially addresses the issue."
+    },
+    {
+      "conv_id": "699533",
+      "customer_text": "how the fuck is possible that i see track lists adoring Charles Manson? i cannot even disable them. This is super disgusting",
+      "context": "",
+      "intent": "feature_feedback",
+      "pred_intent": "content_catalog",
+      "confidence": 0.94,
+      "should_escalate": true,
+      "escalation_reason": "needs_investigation",
+      "escalation_reasons": "",
+      "reply": "We're sorry to hear that. Could you DM us the specific playlist or track URI? We'll take a look and see what we can do.",
+      "judge_overall": 2,
+      "judge_rationale": "The reply asks for a DM but does not acknowledge the offensive content or offer empathy."
+    },
+    {
+      "conv_id": "669353",
+      "customer_text": "@user I reset my iPhone with iOS 11.1.2 and when I downloaded fresh Spotify app tried to log in, nothing happened when I hit the \u2018log in\u2019 or \u2018create account\u2019 button. Before it worked just fine. I have premium account and paying for it. Please provide solution.",
+      "context": "",
+      "intent": "account_security",
+      "pred_intent": "account_access",
+      "confidence": 0.96,
+      "should_escalate": true,
+      "escalation_reason": "account_security",
+      "escalation_reasons": "",
+      "reply": "Got it! Since you just reset, try restarting your iPhone by holding Sleep/Wake + Volume Down for 10 seconds. If that doesn't work, please DM us your account email so we can take a closer look.",
+      "judge_overall": 4,
+      "judge_rationale": "The reply gives a practical restart step and then requests a DM with the account email, directly addressing the login problem."
+    },
+    {
+      "conv_id": "507415",
+      "customer_text": "yo, DM'd you some details but I need help getting my account back.",
+      "context": "",
+      "intent": "dm_followup",
+      "pred_intent": "account_security",
+      "confidence": 0.93,
+      "should_escalate": false,
+      "escalation_reason": "none",
+      "escalation_reasons": "policy_intent:account_security;llm:account_security",
+      "reply": "Hey! We've just sent a DM your way. Let's carry on chatting there",
+      "judge_overall": 5,
+      "judge_rationale": "The reply exactly matches the reference, correctly moves the conversation to DM."
+    },
+    {
+      "conv_id": "2963327",
+      "customer_text": "Appreciate the quick response, Team! I'll give those steps a try and report back.",
+      "context": "Customer: Hi do you have any idea why my downloaded songs frequently skip when I play them from my phone? Literally sounds like a scratched CD. Kind of defeats the purpose, don't you think? Thanks for taking the time.\r\nSpotifyCares: Hey there! That's not cool. Does logging out, restarting your device, and logging back into Spotify help? Keep us posted",
+      "intent": "playback_technical",
+      "pred_intent": "thanks_resolved",
+      "confidence": 0.97,
+      "should_escalate": false,
+      "escalation_reason": "none",
+      "escalation_reasons": "",
+      "reply": "Anytime! Let us know how it goes. We'd be happy to help if you need anything else. <url>",
+      "judge_overall": 4,
+      "judge_rationale": "Politely acknowledges the user\u2019s thanks and invites further contact, staying on brand."
+    },
+    {
+      "conv_id": "115232",
+      "customer_text": "It's just not optimised for the aspect ratio of the phone",
+      "context": "Customer: will you optimise spotify for galaxy note 8? And since I'm coming from iOS, can't you add gestures for \"queue\" and \"add to my songs,\" it's really useful\r\nSpotifyCares: Hey there! Thanks for the feedback. We'll make sure to pass your suggestion about the gestures on to the right folks. Are you having issues using Spotify on your Galaxy Note 8?",
+      "intent": "playback_technical",
+      "pred_intent": "feature_feedback",
+      "confidence": 0.96,
+      "should_escalate": false,
+      "escalation_reason": "none",
+      "escalation_reasons": "",
+      "reply": "Hey! We understand the frustration with the aspect ratio. We don't have specific info to share right now, but hopefully it'll be updated soon. Let us know if there's anything else we can help with!",
+      "judge_overall": 2,
+      "judge_rationale": "The reply acknowledges frustration but offers no concrete help or request for details, making it unhelpful."
+    }
+  ],
+  "intent_accuracy_by_gold_intent": [
+    {
+      "intent": "account_access",
+      "rate": 0.75,
+      "n": 4
+    },
+    {
+      "intent": "account_security",
+      "rate": 0.75,
+      "n": 4
+    },
+    {
+      "intent": "billing_subscription",
+      "rate": 0.833,
+      "n": 12
+    },
+    {
+      "intent": "content_catalog",
+      "rate": 0.625,
+      "n": 8
+    },
+    {
+      "intent": "dm_followup",
+      "rate": 0.333,
+      "n": 3
+    },
+    {
+      "intent": "feature_feedback",
+      "rate": 0.667,
+      "n": 6
+    },
+    {
+      "intent": "playback_technical",
+      "rate": 0.833,
+      "n": 12
+    },
+    {
+      "intent": "thanks_resolved",
+      "rate": 1.0,
+      "n": 1
+    }
+  ],
+  "intent_accuracy_by_confidence": [
+    {
+      "confidence_bucket": "0.6-0.8",
+      "rate": 0.5,
+      "n": 2
+    },
+    {
+      "confidence_bucket": ">=0.9",
+      "rate": 0.75,
+      "n": 48
+    }
+  ],
+  "intent_accuracy_by_stratum": [
+    {
+      "stratum": "hard",
+      "rate": 0.909,
+      "n": 11
+    },
+    {
+      "stratum": "intent_balanced",
+      "rate": 0.7,
+      "n": 20
+    },
+    {
+      "stratum": "random",
+      "rate": 0.684,
+      "n": 19
+    }
+  ],
+  "intent_accuracy_thread_vs_single": [
+    {
+      "has_thread": "False",
+      "rate": 0.71,
+      "n": 31
+    },
+    {
+      "has_thread": "True",
+      "rate": 0.789,
+      "n": 19
+    }
+  ],
+  "escalation_recall_by_gold_reason": [
+    {
+      "escalation_reason": "account_security",
+      "rate": 0.75,
+      "n": 4
+    },
+    {
+      "escalation_reason": "high_frustration",
+      "rate": 1.0,
+      "n": 2
+    },
+    {
+      "escalation_reason": "needs_investigation",
+      "rate": 0.0,
+      "n": 1
+    },
+    {
+      "escalation_reason": "payment_dispute",
+      "rate": 0.8,
+      "n": 5
+    },
+    {
+      "escalation_reason": "privacy_legal",
+      "rate": 1.0,
+      "n": 1
+    }
+  ],
+  "missed_escalations": {
+    "count": 3,
+    "by_gold_reason": {
+      "needs_investigation": 1,
+      "account_security": 1,
+      "payment_dispute": 1
+    },
+    "examples": [
+      {
+        "conv_id": "699533",
+        "customer_text": "how the fuck is possible that i see track lists adoring Charles Manson? i cannot even disable them. This is super disgusting",
+        "context": "",
+        "intent": "feature_feedback",
+        "pred_intent": "content_catalog",
+        "confidence": 0.94,
+        "should_escalate": true,
+        "escalation_reason": "needs_investigation",
+        "escalation_reasons": "",
+        "reply": "We're sorry to hear that. Could you DM us the specific playlist or track URI? We'll take a look and see what we can do.",
+        "judge_overall": 2,
+        "judge_rationale": "The reply asks for a DM but does not acknowledge the offensive content or offer empathy."
+      },
+      {
+        "conv_id": "669353",
+        "customer_text": "@user I reset my iPhone with iOS 11.1.2 and when I downloaded fresh Spotify app tried to log in, nothing happened when I hit the \u2018log in\u2019 or \u2018create account\u2019 button. Before it worked just fine. I have premium account and paying for it. Please provide solution.",
+        "context": "",
+        "intent": "account_security",
+        "pred_intent": "account_access",
+        "confidence": 0.96,
+        "should_escalate": true,
+        "escalation_reason": "account_security",
+        "escalation_reasons": "",
+        "reply": "Got it! Since you just reset, try restarting your iPhone by holding Sleep/Wake + Volume Down for 10 seconds. If that doesn't work, please DM us your account email so we can take a closer look.",
+        "judge_overall": 4,
+        "judge_rationale": "The reply gives a practical restart step and then requests a DM with the account email, directly addressing the login problem."
+      },
+      {
+        "conv_id": "506012",
+        "customer_text": "i live in canada but I'm paying in my home country in euros. It's both 9.99/month but let's be honest here...9.99 euros aint the same as 9.99 CAD. Can you help me change account settings?",
+        "context": "",
+        "intent": "billing_subscription",
+        "pred_intent": "billing_subscription",
+        "confidence": 0.96,
+        "should_escalate": true,
+        "escalation_reason": "payment_dispute",
+        "escalation_reasons": "",
+        "reply": "Hey! We hear you. Can you DM us your account's email address or username? We'll take a look backstage",
+        "judge_overall": 5,
+        "judge_rationale": "Asks for DM with account info, directly addresses request, matches reference tone."
+      }
+    ]
+  },
+  "unneeded_escalations": {
+    "count": 1,
+    "layers_fired": {
+      "llm": 1,
+      "policy_intent": 1
+    },
+    "only_low_confidence": 0,
+    "examples": [
+      {
+        "conv_id": "507415",
+        "customer_text": "yo, DM'd you some details but I need help getting my account back.",
+        "context": "",
+        "intent": "dm_followup",
+        "pred_intent": "account_security",
+        "confidence": 0.93,
+        "should_escalate": false,
+        "escalation_reason": "none",
+        "escalation_reasons": "policy_intent:account_security;llm:account_security",
+        "reply": "Hey! We've just sent a DM your way. Let's carry on chatting there",
+        "judge_overall": 5,
+        "judge_rationale": "The reply exactly matches the reference, correctly moves the conversation to DM."
+      }
+    ]
+  },
+  "unacceptable_replies": {
+    "count": 8,
+    "hallucinations": 1,
+    "acceptable_rate_by_pred_intent": [
+      {
+        "pred_intent": "account_access",
+        "rate": 0.8,
+        "n": 5
+      },
+      {
+        "pred_intent": "account_security",
+        "rate": 1.0,
+        "n": 4
+      },
+      {
+        "pred_intent": "billing_subscription",
+        "rate": 1.0,
+        "n": 10
+      },
+      {
+        "pred_intent": "content_catalog",
+        "rate": 0.571,
+        "n": 7
+      },
+      {
+        "pred_intent": "dm_followup",
+        "rate": 1.0,
+        "n": 2
+      },
+      {
+        "pred_intent": "feature_feedback",
+        "rate": 0.833,
+        "n": 6
+      },
+      {
+        "pred_intent": "other",
+        "rate": 1.0,
+        "n": 2
+      },
+      {
+        "pred_intent": "playback_technical",
+        "rate": 0.75,
+        "n": 12
+      },
+      {
+        "pred_intent": "thanks_resolved",
+        "rate": 1.0,
+        "n": 2
+      }
+    ],
+    "examples": [
+      {
+        "conv_id": "699533",
+        "customer_text": "how the fuck is possible that i see track lists adoring Charles Manson? i cannot even disable them. This is super disgusting",
+        "context": "",
+        "intent": "feature_feedback",
+        "pred_intent": "content_catalog",
+        "confidence": 0.94,
+        "should_escalate": true,
+        "escalation_reason": "needs_investigation",
+        "escalation_reasons": "",
+        "reply": "We're sorry to hear that. Could you DM us the specific playlist or track URI? We'll take a look and see what we can do.",
+        "judge_overall": 2,
+        "judge_rationale": "The reply asks for a DM but does not acknowledge the offensive content or offer empathy."
+      },
+      {
+        "conv_id": "115232",
+        "customer_text": "It's just not optimised for the aspect ratio of the phone",
+        "context": "Customer: will you optimise spotify for galaxy note 8? And since I'm coming from iOS, can't you add gestures for \"queue\" and \"add to my songs,\" it's really useful\r\nSpotifyCares: Hey there! Thanks for the feedback. We'll make sure to pass your suggestion about the gestures on to the right folks. Are you having issues using Spotify on your Galaxy Note 8?",
+        "intent": "playback_technical",
+        "pred_intent": "feature_feedback",
+        "confidence": 0.96,
+        "should_escalate": false,
+        "escalation_reason": "none",
+        "escalation_reasons": "",
+        "reply": "Hey! We understand the frustration with the aspect ratio. We don't have specific info to share right now, but hopefully it'll be updated soon. Let us know if there's anything else we can help with!",
+        "judge_overall": 2,
+        "judge_rationale": "The reply acknowledges frustration but offers no concrete help or request for details, making it unhelpful."
+      },
+      {
+        "conv_id": "694626",
+        "customer_text": "I have been paying $10.00 for a premium membership since July, and since then, I can't log in to my account. You don't have a phone number or email to reach. I will be contacting my bank to terminate payment if I don't get a response. Please get back to me ASAP!",
+        "context": "",
+        "intent": "billing_subscription",
+        "pred_intent": "account_access",
+        "confidence": 0.94,
+        "should_escalate": true,
+        "escalation_reason": "payment_dispute",
+        "escalation_reasons": "llm:high_frustration",
+        "reply": "Hey! We don't have phone support, but we can help here. Since this needs account details, we just sent you a DM. Please check your inbox so we can look into your login issue.",
+        "judge_overall": 3,
+        "judge_rationale": "The reply claims a DM was sent, which hasn't happened, introducing false information; it partially addresses the issue."
+      },
+      {
+        "conv_id": "534619",
+        "customer_text": "@user @user I don't know what's wrong with it. I can't listen to it and I see some people can't do it too.",
+        "context": "Customer: <url>\r\nCustomer: But unfortunately it doesn't work for me. It says \"Sorry, couldn't find that\". Maybe it's not available worldwide. please could you fix it? I wanna listen to this interview\r\nSpotifyCares: Hey there! There might be some restrictions based on your current location, but not your Spotify account\u2019s country. No worries, your feedback matters, and we'll have this passed on to the right folks. Let us know if you have more questions \ud83d\ude42\r\nCustomer: why it's not available worldwide ... @user is a global superstar lol #sad",
+        "intent": "content_catalog",
+        "pred_intent": "content_catalog",
+        "confidence": 0.95,
+        "should_escalate": false,
+        "escalation_reason": "none",
+        "escalation_reasons": "",
+        "reply": "Hey! We're sorry you're having trouble. Could you DM us your account's username or email? We'll take a look backstage to see what's going on.",
+        "judge_overall": 3,
+        "judge_rationale": "Asks for a DM to investigate, which is a standard step, but doesn\u2019t directly explain the restriction issue."
+      },
+      {
+        "conv_id": "567985",
+        "customer_text": "Does @user have artist old mixtapes on it or just albums ?",
+        "context": "",
+        "intent": "content_catalog",
+        "pred_intent": "content_catalog",
+        "confidence": 0.97,
+        "should_escalate": false,
+        "escalation_reason": "none",
+        "escalation_reasons": "",
+        "reply": "Hey! We usually have a mix of albums, singles, and sometimes older releases. If you're missing specific tracks, could you send us your account's email via DM? We'll take a look under the hood",
+        "judge_overall": 3,
+        "judge_rationale": "The reply is vague about mixtapes and unnecessarily asks for personal info, missing the core answer."
+      },
+      {
+        "conv_id": "2917841",
+        "customer_text": "App isn\u2019t working. Doesn\u2019t matter if I\u2019m on data or WiFi. Restarted my phone and updated. What\u2019s going on?",
+        "context": "",
+        "intent": "playback_technical",
+        "pred_intent": "playback_technical",
+        "confidence": 0.96,
+        "should_escalate": false,
+        "escalation_reason": "none",
+        "escalation_reasons": "",
+        "reply": "Got it. Since you've already restarted and updated, could you DM us your account's email address or username? We'll take a look under the hood",
+        "judge_overall": 3,
+        "judge_rationale": "Requests a DM for further troubleshooting but doesn\u2019t directly address the app\u2011not\u2011working symptom beyond that."
+      },
+      {
+        "conv_id": "2892620",
+        "customer_text": "Hey, I seem to be unable to unfollow a gone playlist. Can you take a look at <url> and tell me what to do?",
+        "context": "",
+        "intent": "content_catalog",
+        "pred_intent": "playback_technical",
+        "confidence": 0.96,
+        "should_escalate": false,
+        "escalation_reason": "none",
+        "escalation_reasons": "",
+        "reply": "Hey there! Can you let us know the iOS and Spotify versions you're using? We'll see what we can suggest",
+        "judge_overall": 3,
+        "judge_rationale": "Asking for app versions is somewhat useful but does not directly address the unfollow problem; still partially helpful."
+      },
+      {
+        "conv_id": "2979775",
+        "customer_text": "its a LAN connection at office, but at my house with Wi-Fi has same problem. BTW the mobile app works fine",
+        "context": "Customer: the PC is Windows, not sure about Chrome's version, but Spotify app for PC is latest coz i just installed it few days ago\r\nSpotifyCares: It'd help us a lot if you can send us your Windows operating system and the exact version of the Spotify app. You may send us a screenshot if you'd like. We'll be right here waiting\r\nCustomer: here they are <url>\r\nSpotifyCares: Thanks for sending the screenshots. Is this also happening over WiFi, 3G/4G, or both? If on WiFi, is it a public or private connection?",
+        "intent": "playback_technical",
+        "pred_intent": "playback_technical",
+        "confidence": 0.96,
+        "should_escalate": false,
+        "escalation_reason": "none",
+        "escalation_reasons": "",
+        "reply": "Thanks for the update. Since it's happening on both connections, can you DM us your account's email address? We'll take a closer look",
+        "judge_overall": 3,
+        "judge_rationale": "The reply asks for a DM with the account email, which is a standard step, but it doesn\u2019t suggest any immediate troubleshooting for the connectivity issue."
+      }
+    ]
+  }
+}
