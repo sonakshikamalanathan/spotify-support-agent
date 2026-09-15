@@ -19,6 +19,7 @@ OUTPUT = {"golden": GOLDEN, "relabel": RELABEL}
 codebook = json.loads(CODEBOOK.read_text(encoding="utf-8"))
 INTENT_IDS = [i["id"] for i in codebook["intents"]]
 REASON_IDS = [r["id"] for r in codebook["escalation_reasons"]]
+ALWAYS_ESCALATE = set(codebook.get("always_escalate_intents", []))
 
 
 def task_items(task):
@@ -53,6 +54,7 @@ class Handler(BaseHTTPRequestHandler):
             "intents": [{"id": i["id"], "name": i["name"], "definition": i["definition"]} for i in codebook["intents"]],
             "reasons": codebook["escalation_reasons"],
             "rules": codebook["labelling_rules"],
+            "always_escalate": sorted(ALWAYS_ESCALATE),
             "items": items[["conv_id", "context", "customer_text"]].to_dict("records"),
             "labels": labels.set_index("conv_id").to_dict("index") if len(labels) else {},
         })
@@ -66,6 +68,8 @@ class Handler(BaseHTTPRequestHandler):
         reason = body.get("escalation_reason") if escalate == "yes" else "none"
         if body.get("intent") not in INTENT_IDS or escalate not in ("yes", "no") or (escalate == "yes" and reason not in REASON_IDS):
             return self._send(400, {"error": "invalid label"})
+        if body["intent"] in ALWAYS_ESCALATE and escalate != "yes":
+            return self._send(400, {"error": "Codebook rule: this intent always needs a human. Press Y and pick a reason."})
         upsert(OUTPUT[task], "conv_id", {
             "conv_id": str(body["conv_id"]), "intent": body["intent"], "should_escalate": escalate,
             "escalation_reason": reason, "unsure": bool(body.get("unsure")), "notes": str(body.get("notes", "")),

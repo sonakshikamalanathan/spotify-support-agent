@@ -42,7 +42,7 @@
 <div class="wrap">
   <div class="top">
     <div class="progress"><div id="progress-text"></div><div class="bar"><div id="progress-bar" style="width:0"></div></div></div>
-    <div class="hint">1–9 intent · Y/N human · A–F reason · U unsure · Enter save &amp; next · ←/→ move</div>
+    <div class="hint">1–9 intent · Y/N human · A–F reason · U unsure · Enter save &amp; next · ←/→ move · G go to item</div>
   </div>
   <div id="app" class="grid"></div>
   <details><summary>Codebook rules and definitions</summary><div id="rules"></div></details>
@@ -116,6 +116,7 @@
   async function saveCurrent() {
     if (!draft.intent) return render("Pick an intent first (1–9).");
     if (draft.human === "yes" && !draft.reason) return render("Pick a reason (A–F), or press N.");
+    if ((S.always_escalate || []).includes(draft.intent) && draft.human !== "yes") return render("Codebook rule: this intent always needs a human. Press Y and pick a reason.");
     const item = S.items[idx];
     const body = { conv_id: item.conv_id, intent: draft.intent, should_escalate: draft.human, escalation_reason: draft.reason || "none", unsure: draft.unsure, notes: draft.notes };
     try {
@@ -139,6 +140,7 @@
     else if (k === "enter") { e.preventDefault(); saveCurrent(); }
     else if (k === "arrowright") open(idx + 1);
     else if (k === "arrowleft") open(idx - 1);
+    else if (k === "g") { const n = Number(prompt(`Go to item (1–${S.items.length})`)); if (n >= 1 && n <= S.items.length) open(n - 1); }
     else return;
     e.preventDefault();
   });
