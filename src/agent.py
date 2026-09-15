@@ -51,7 +51,9 @@ def format_codebook(codebook):
 
 
 def format_thread(context, message):
-    thread = f"Earlier in the thread:\n{context}\n\n" if isinstance(context, str) and context.strip() else ""
+    # Normalise Windows line endings so prompts, and therefore cache keys, match on every OS.
+    context = context.replace("\r\n", "\n") if isinstance(context, str) else ""
+    thread = f"Earlier in the thread:\n{context}\n\n" if context.strip() else ""
     return f"{thread}Customer's latest message:\n{message}"
 
 

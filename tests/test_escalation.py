@@ -1,6 +1,12 @@
 import pytest
 
-from agent import COMMITMENT_RE, ESCALATION_RULES, SupportAgent
+from agent import COMMITMENT_RE, ESCALATION_RULES, SupportAgent, format_thread
+
+
+def test_thread_formatting_ignores_line_ending_style():
+    unix = format_thread("Customer: songs skip\nSpotifyCares: which device?", "iPhone 8")
+    assert format_thread("Customer: songs skip\r\nSpotifyCares: which device?", "iPhone 8") == unix
+    assert format_thread("", "hi") == "Customer's latest message:\nhi"
 
 
 def rule_hits(text):
