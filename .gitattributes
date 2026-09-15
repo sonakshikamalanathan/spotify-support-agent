@@ -1,4 +1,4 @@
-# Keep data files byte-identical across operating systems: prompts built from them are hashed
-# into LLM cache keys, so a CRLF conversion on checkout would break offline reproduction.
-*.csv -text
-*.jsonl -text
+# Data files always use LF line endings, on every OS. Prompts built from them are hashed into
+# LLM cache keys, so a CRLF conversion on checkout would break offline reproduction.
+*.csv   text eol=lf
+*.jsonl text eol=lf
