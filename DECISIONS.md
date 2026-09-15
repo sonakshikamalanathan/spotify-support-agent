@@ -28,7 +28,7 @@ Non-obvious decisions, in the order they were made. (Draft: numbers are filled i
 
 13. **The judge is validated three ways, not one**: agreement with blind human ratings, a planted-defect stress test (invented refunds, asking for passwords, rude or off-topic replies), and batched-vs-single grading agreement.
 
-14. **Every LLM response is cached and committed.** `OFFLINE=1` re-runs the full evaluation without API keys in about a minute, and CI checks on every push that the headline numbers reproduce.
+14. **Every LLM response is cached and committed.** `OFFLINE=1` re-runs the full evaluation without API keys in about a minute, and CI checks on every push that the headline numbers reproduce. Retrieval rankings are cached too. Many historical tweets tie on similarity, and numpy's default sort breaks ties differently on different CPUs, so on CI's Linux runner the drafter saw different examples and missed its cache. The committed rankings are replayed, and any new query breaks ties by history order.
 
 15. **Trust is granted per intent, not globally.** A cost model (human writes = 1, human approves draft = 0.3, bad auto-reply = 3, missed escalation = 10) prices rollout policies. Intents qualify for auto-send on dev and are priced on test.
 

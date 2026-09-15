@@ -18,6 +18,8 @@ SEED = 42
 TEST_FRACTION = 0.20
 
 PAIRS_CSV = DATA_PROCESSED / "spotify_pairs.csv"
+# Retrieval rankings behind the committed results (TF-IDF ties break differently across CPUs).
+RETRIEVAL_CACHE = DATA_PROCESSED / "retrieval_cache.json"
 
 # The agent's two LLM steps use different Groq models: each model has its own free-tier
 # token-per-minute budget, and classification benefits from a reasoning model while drafting

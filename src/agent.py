@@ -17,7 +17,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
-from config import ANALYSER, BRAND, DRAFTER, LABELS_DIR
+from config import ANALYSER, BRAND, DRAFTER, LABELS_DIR, RETRIEVAL_CACHE
 from llm import LLM
 from weak_classifier import train_weak_label_classifier
 
@@ -63,16 +63,29 @@ def format_thread(context, message):
 
 
 class Retriever:
-    """TF-IDF nearest neighbours over historical customer messages (history split only)."""
+    """TF-IDF nearest neighbours over historical customer messages (history split only).
 
-    def __init__(self, history):
+    Many historical tweets tie on similarity, and numpy's default sort orders ties differently on
+    different CPUs, which changed the drafter's prompts on CI. So the rankings behind the committed
+    results are replayed from RETRIEVAL_CACHE, and any other query breaks ties by history order.
+    """
+
+    def __init__(self, history, cache_path=RETRIEVAL_CACHE):
         self.history = history.reset_index(drop=True)
         self.vectorizer = TfidfVectorizer(ngram_range=(1, 2), min_df=2, sublinear_tf=True, stop_words="english")
         self.matrix = self.vectorizer.fit_transform(self.history["customer_text"])
+        self.row_of = {str(cid): row for row, cid in enumerate(self.history["conv_id"])}
+        self.cache = json.loads(cache_path.read_text(encoding="utf-8")) if cache_path and cache_path.exists() else {}
+        self.cache_misses = 0
 
     def search(self, text, k=TOP_K):
         scores = linear_kernel(self.vectorizer.transform([text]), self.matrix).ravel()
-        top = scores.argsort()[::-1][:k]
+        cached = self.cache.get(str(k), {}).get(text)
+        if cached and all(cid in self.row_of for cid in cached):
+            top = [self.row_of[cid] for cid in cached]
+        else:
+            self.cache_misses += 1
+            top = (-scores).argsort(kind="stable")[:k]
         return [
             {
                 "conv_id": str(self.history.at[i, "conv_id"]),

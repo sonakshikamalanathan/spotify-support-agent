@@ -40,6 +40,8 @@ The first 50 (shuffled) form a **dev split** used for tuning and choosing the tr
 ```
 tweet + thread ──► ANALYSE (gpt-oss-120b): intent, confidence, risk flag
              │
+             ├──► SECOND OPINION (TF-IDF + logistic regression on weak labels): intent
+             │
              ├──► RETRIEVE (TF-IDF over 31,785 historical pairs): 5 most similar past cases
              │
              └──► DRAFT (qwen3.8-27b): ≤280-char reply citing the past cases it used
@@ -48,8 +50,10 @@ tweet + thread ──► ANALYSE (gpt-oss-120b): intent, confidence, risk flag
                     1 keyword rules (security, payment, privacy/legal, safety)
                     2 always-escalate intents (hacked account)
                     3 intent confidence < 0.6
-                    4 the LLM's own risk flag
-                    5 the draft promises a refund, credit or timeline, or is empty
+                    4 the second opinion disagrees with the LLM's intent      (added after dev)
+                    5 the LLM's own risk flag
+                    6 the draft promises a refund, credit or timeline, is empty,
+                      or claims an action the agent cannot take               (added after dev)
 ```
 
 **Baselines.**
