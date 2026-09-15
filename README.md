@@ -8,7 +8,7 @@ An AI support agent for **@SpotifyCares**, built from real customer-support twee
 
 Most of this repo is about the second question: **is it good enough to trust, and where exactly is it not?**
 
-> Hiver SDE Intern take-home · Sonakshi Kamalanathan
+> Hiver SDE Intern take-home · Sonakshi Kamalanathan · **[Interactive results page](https://sonakshikamalanathan.github.io/spotify-support-agent/)** · [Report](REPORT.md) · [Decision log](DECISIONS.md)
 
 ## Headline results
 

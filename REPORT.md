@@ -1,6 +1,6 @@
 # Can we trust an AI support agent for @SpotifyCares?
 
-*Hiver SDE Intern take-home · Sonakshi Kamalanathan · Interactive version: `docs/index.html` · Decision log: `DECISIONS.md`*
+*Hiver SDE Intern take-home · Sonakshi Kamalanathan · Interactive results page: https://sonakshikamalanathan.github.io/spotify-support-agent/ · Decision log: [DECISIONS.md](DECISIONS.md)*
 
 ## 1. Problem framing
 
