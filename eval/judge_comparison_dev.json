@@ -1,0 +1,23 @@
+{
+  "n": 150,
+  "overall_exact_agreement": 0.5866666666666667,
+  "overall_within_1": 0.8866666666666667,
+  "overall_weighted_kappa": 0.6087120497831416,
+  "acceptable_agreement": 0.86,
+  "acceptable_kappa": 0.7092486616208233,
+  "mean_score_20b_minus_120b": 0.03333333333333333,
+  "acceptable_rate_by_system": {
+    "agent": {
+      "gpt-oss-120b": 0.84,
+      "gpt-oss-20b": 0.7
+    },
+    "simple": {
+      "gpt-oss-120b": 0.36,
+      "gpt-oss-20b": 0.44
+    },
+    "trivial": {
+      "gpt-oss-120b": 0.04,
+      "gpt-oss-20b": 0.04
+    }
+  }
+}

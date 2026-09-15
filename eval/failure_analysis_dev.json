@@ -76,7 +76,7 @@
       "escalation_reasons": "",
       "reply": "Hey! We hear you. Since this is an API issue, could you DM us the specific error details? We'll take a look to see how we can help you get ready for your demo!",
       "judge_overall": 5,
-      "judge_rationale": "It correctly requests error details via DM, aligning with the standard support approach."
+      "judge_rationale": "Appropriate request for error details and acknowledges API issue; on-brand."
     },
     {
       "conv_id": "490759",
@@ -89,8 +89,8 @@
       "escalation_reason": "high_frustration",
       "escalation_reasons": "second_opinion:feature_feedback;llm:high_frustration",
       "reply": "Hey there! We're here to help. Could you send us a DM with a bit more detail about what's going on? We'll take a look and get back to you.",
-      "judge_overall": 4,
-      "judge_rationale": "The reply asks for more detail via DM, a suitable response to the vague complaint."
+      "judge_overall": 2,
+      "judge_rationale": "DM request instead of addressing subscription time question."
     },
     {
       "conv_id": "466824",
@@ -103,8 +103,8 @@
       "escalation_reason": "none",
       "escalation_reasons": "second_opinion:thanks_resolved",
       "reply": "We hear you! We'll make sure to pass on your feedback to the right folks. Stay tuned for updates at <url>",
-      "judge_overall": 4,
-      "judge_rationale": "The reply acknowledges the request for the song, promises to pass feedback, and provides a link for updates\u2014appropriate and on\u2011brand."
+      "judge_overall": 3,
+      "judge_rationale": "The reply does not address the customer\u2019s request to add a song; it merely promises updates, which is insufficient."
     },
     {
       "conv_id": "450893",
@@ -118,7 +118,7 @@
       "escalation_reasons": "second_opinion:playback_technical",
       "reply": "Hey! Our Curation team are independent & use taste, data, research, and trends to create playlists, but we\u2019ll pass on your suggestion \ud83d\ude42",
       "judge_overall": 5,
-      "judge_rationale": "The reply mirrors the reference response, politely declines the suggestion, and stays on\u2011brand."
+      "judge_rationale": "Accurate, friendly, follows policy."
     },
     {
       "conv_id": "694626",
@@ -131,8 +131,8 @@
       "escalation_reason": "payment_dispute",
       "escalation_reasons": "llm:high_frustration;draft_claims_action",
       "reply": "Hey! We don't have phone support, but we can help here. Since this needs account details, we just sent you a DM. Please check your inbox so we can look into your login issue.",
-      "judge_overall": 3,
-      "judge_rationale": "The reply claims a DM was sent, which hasn't happened, introducing false information; it partially addresses the issue."
+      "judge_overall": 4,
+      "judge_rationale": "Explains lack of phone support and directs to DM; standard response."
     },
     {
       "conv_id": "699533",
@@ -146,7 +146,7 @@
       "escalation_reasons": "second_opinion:feature_feedback",
       "reply": "We're sorry to hear that. Could you DM us the specific playlist or track URI? We'll take a look and see what we can do.",
       "judge_overall": 2,
-      "judge_rationale": "The reply asks for a DM but does not acknowledge the offensive content or offer empathy."
+      "judge_rationale": "Asks for DM but ignores user\u2019s strong language and content issue."
     },
     {
       "conv_id": "669353",
@@ -159,8 +159,8 @@
       "escalation_reason": "account_security",
       "escalation_reasons": "",
       "reply": "Got it! Since you just reset, try restarting your iPhone by holding Sleep/Wake + Volume Down for 10 seconds. If that doesn't work, please DM us your account email so we can take a closer look.",
-      "judge_overall": 4,
-      "judge_rationale": "The reply gives a practical restart step and then requests a DM with the account email, directly addressing the login problem."
+      "judge_overall": 5,
+      "judge_rationale": "Provides troubleshooting steps and DM request, aligns with reference."
     },
     {
       "conv_id": "507415",
@@ -174,7 +174,7 @@
       "escalation_reasons": "policy_intent:account_security;second_opinion:dm_followup;llm:account_security;draft_claims_action",
       "reply": "Hey! We've just sent a DM your way. Let's carry on chatting there",
       "judge_overall": 5,
-      "judge_rationale": "The reply exactly matches the reference, correctly moves the conversation to DM."
+      "judge_rationale": "Exact same helpful reply as reference."
     },
     {
       "conv_id": "2963327",
@@ -187,8 +187,8 @@
       "escalation_reason": "none",
       "escalation_reasons": "second_opinion:feature_feedback",
       "reply": "Anytime! Let us know how it goes. We'd be happy to help if you need anything else. <url>",
-      "judge_overall": 4,
-      "judge_rationale": "Politely acknowledges the user\u2019s thanks and invites further contact, staying on brand."
+      "judge_overall": 5,
+      "judge_rationale": "Friendly follow-up, no new info needed."
     },
     {
       "conv_id": "115232",
@@ -202,7 +202,7 @@
       "escalation_reasons": "second_opinion:playback_technical",
       "reply": "Hey! We understand the frustration with the aspect ratio. We don't have specific info to share right now, but hopefully it'll be updated soon. Let us know if there's anything else we can help with!",
       "judge_overall": 2,
-      "judge_rationale": "The reply acknowledges frustration but offers no concrete help or request for details, making it unhelpful."
+      "judge_rationale": "Reply does not ask for device/app info and offers no actionable help."
     }
   ],
   "intent_accuracy_by_gold_intent": [
@@ -332,8 +332,8 @@
         "escalation_reason": "account_security",
         "escalation_reasons": "",
         "reply": "Got it! Since you just reset, try restarting your iPhone by holding Sleep/Wake + Volume Down for 10 seconds. If that doesn't work, please DM us your account email so we can take a closer look.",
-        "judge_overall": 4,
-        "judge_rationale": "The reply gives a practical restart step and then requests a DM with the account email, directly addressing the login problem."
+        "judge_overall": 5,
+        "judge_rationale": "Provides troubleshooting steps and DM request, aligns with reference."
       }
     ]
   },
@@ -359,7 +359,7 @@
         "escalation_reasons": "second_opinion:thanks_resolved",
         "reply": "Thanks for flagging this! To help us investigate, could you send us a DM with your account username or email? We'll take a look backstage. \ud83c\udfa7",
         "judge_overall": 4,
-        "judge_rationale": "The reply asks for needed details via DM, matching the reference style and staying on\u2011brand."
+        "judge_rationale": "Requests account details via DM, which is standard; no issues."
       },
       {
         "conv_id": "466824",
@@ -372,8 +372,8 @@
         "escalation_reason": "none",
         "escalation_reasons": "second_opinion:thanks_resolved",
         "reply": "We hear you! We'll make sure to pass on your feedback to the right folks. Stay tuned for updates at <url>",
-        "judge_overall": 4,
-        "judge_rationale": "The reply acknowledges the request for the song, promises to pass feedback, and provides a link for updates\u2014appropriate and on\u2011brand."
+        "judge_overall": 3,
+        "judge_rationale": "The reply does not address the customer\u2019s request to add a song; it merely promises updates, which is insufficient."
       },
       {
         "conv_id": "450893",
@@ -387,7 +387,7 @@
         "escalation_reasons": "second_opinion:playback_technical",
         "reply": "Hey! Our Curation team are independent & use taste, data, research, and trends to create playlists, but we\u2019ll pass on your suggestion \ud83d\ude42",
         "judge_overall": 5,
-        "judge_rationale": "The reply mirrors the reference response, politely declines the suggestion, and stays on\u2011brand."
+        "judge_rationale": "Accurate, friendly, follows policy."
       },
       {
         "conv_id": "534619",
@@ -400,8 +400,8 @@
         "escalation_reason": "none",
         "escalation_reasons": "second_opinion:playback_technical",
         "reply": "Hey! We're sorry you're having trouble. Could you DM us your account's username or email? We'll take a look backstage to see what's going on.",
-        "judge_overall": 3,
-        "judge_rationale": "Asks for a DM to investigate, which is a standard step, but doesn\u2019t directly explain the restriction issue."
+        "judge_overall": 1,
+        "judge_rationale": "Publicly requests sensitive account info, which is disallowed and harmful."
       },
       {
         "conv_id": "620378",
@@ -415,17 +415,17 @@
         "escalation_reasons": "second_opinion:playback_technical",
         "reply": "We hear you! Availability depends on agreements with content providers, which can vary by region. We do our best to get everything on the platform, but sometimes deals are still ongoing. Hope this helps clarify things \ud83d\ude42",
         "judge_overall": 4,
-        "judge_rationale": "Provides a standard explanation about content availability, which fits the query and contains no false claims."
+        "judge_rationale": "Explains availability constraints; appropriate response."
       }
     ]
   },
   "unacceptable_replies": {
-    "count": 8,
-    "hallucinations": 1,
+    "count": 15,
+    "hallucinations": 0,
     "acceptable_rate_by_pred_intent": [
       {
         "pred_intent": "account_access",
-        "rate": 0.8,
+        "rate": 0.6,
         "n": 5
       },
       {
@@ -435,12 +435,12 @@
       },
       {
         "pred_intent": "billing_subscription",
-        "rate": 1.0,
+        "rate": 0.7,
         "n": 10
       },
       {
         "pred_intent": "content_catalog",
-        "rate": 0.571,
+        "rate": 0.429,
         "n": 7
       },
       {
@@ -455,7 +455,7 @@
       },
       {
         "pred_intent": "other",
-        "rate": 1.0,
+        "rate": 0.0,
         "n": 2
       },
       {
@@ -471,6 +471,34 @@
     ],
     "examples": [
       {
+        "conv_id": "534619",
+        "customer_text": "@user @user I don't know what's wrong with it. I can't listen to it and I see some people can't do it too.",
+        "context": "Customer: <url>\r\nCustomer: But unfortunately it doesn't work for me. It says \"Sorry, couldn't find that\". Maybe it's not available worldwide. please could you fix it? I wanna listen to this interview\r\nSpotifyCares: Hey there! There might be some restrictions based on your current location, but not your Spotify account\u2019s country. No worries, your feedback matters, and we'll have this passed on to the right folks. Let us know if you have more questions \ud83d\ude42\r\nCustomer: why it's not available worldwide ... @user is a global superstar lol #sad",
+        "intent": "content_catalog",
+        "pred_intent": "content_catalog",
+        "confidence": 0.95,
+        "should_escalate": false,
+        "escalation_reason": "none",
+        "escalation_reasons": "second_opinion:playback_technical",
+        "reply": "Hey! We're sorry you're having trouble. Could you DM us your account's username or email? We'll take a look backstage to see what's going on.",
+        "judge_overall": 1,
+        "judge_rationale": "Publicly requests sensitive account info, which is disallowed and harmful."
+      },
+      {
+        "conv_id": "639943",
+        "customer_text": "Everytime i contact support they screw this up and youre losing a customer for life at this point. I want my Facebook info gone. Completely fucking gone. I never ever ever want to receive a welcome back to Facebook email ever again after signing in to Spotify.",
+        "context": "Customer: listen. STOP REACTIVATING MY FACEBOOK ACCOUNT. DELETE MY OAUTH INFO",
+        "intent": "account_access",
+        "pred_intent": "account_access",
+        "confidence": 0.96,
+        "should_escalate": true,
+        "escalation_reason": "privacy_legal",
+        "escalation_reasons": "llm:high_frustration",
+        "reply": "Hey, we hear you. We can't delete OAuth info here, but we can check your account settings. Please DM us your account's email address so we can take a look backstage.",
+        "judge_overall": 1,
+        "judge_rationale": "Publicly requests email and offers no solution; disallowed and harmful."
+      },
+      {
         "conv_id": "699533",
         "customer_text": "how the fuck is possible that i see track lists adoring Charles Manson? i cannot even disable them. This is super disgusting",
         "context": "",
@@ -482,7 +510,63 @@
         "escalation_reasons": "second_opinion:feature_feedback",
         "reply": "We're sorry to hear that. Could you DM us the specific playlist or track URI? We'll take a look and see what we can do.",
         "judge_overall": 2,
-        "judge_rationale": "The reply asks for a DM but does not acknowledge the offensive content or offer empathy."
+        "judge_rationale": "Asks for DM but ignores user\u2019s strong language and content issue."
+      },
+      {
+        "conv_id": "490759",
+        "customer_text": "@user This is so ridiculous ANSWER MY TWEETS",
+        "context": "Customer: What will happen to my remaining subscription time if I buy the \u00a399 deal for a year?\r\nSpotifyCares: Hi there, thanks for reaching out! Once you subscribe to Spotify Yearly, the remaining Premium time on your current subscription will be applied after the 12-month period. Hope this helps. Let us know if you have other questions",
+        "intent": "dm_followup",
+        "pred_intent": "other",
+        "confidence": 0.92,
+        "should_escalate": true,
+        "escalation_reason": "high_frustration",
+        "escalation_reasons": "second_opinion:feature_feedback;llm:high_frustration",
+        "reply": "Hey there! We're here to help. Could you send us a DM with a bit more detail about what's going on? We'll take a look and get back to you.",
+        "judge_overall": 2,
+        "judge_rationale": "DM request instead of addressing subscription time question."
+      },
+      {
+        "conv_id": "1778457",
+        "customer_text": "Hello, I saw an ad saying 99 cents for 3 months. I clicked on it and it took me to page where I logged in ( new user, never been activated for premium ). I was charged 9.99 on my credit card. __email__ is the email",
+        "context": "",
+        "intent": "billing_subscription",
+        "pred_intent": "billing_subscription",
+        "confidence": 0.97,
+        "should_escalate": true,
+        "escalation_reason": "payment_dispute",
+        "escalation_reasons": "rule:privacy_legal;llm:payment_dispute",
+        "reply": "Hey there! That doesn't sound right. Can you DM us your account's email address? We'll take a look backstage",
+        "judge_overall": 2,
+        "judge_rationale": "DM request instead of addressing billing issue."
+      },
+      {
+        "conv_id": "141134",
+        "customer_text": "@user Its so unfair!! The promo is for VISA cardholders only. \ud83d\ude11 How about us? Stop broadcasting incomplete details!",
+        "context": "Customer: Unli skips. Unli fun. 3 months of Premium for \u20b19. <url>\r\nCustomer: i was charged 129 \ud83d\ude24\ud83d\ude24\ud83d\ude24\r\nSpotifyCares: Hey there! Can you DM us your account's username or email address? We'll take a look backstage",
+        "intent": "billing_subscription",
+        "pred_intent": "billing_subscription",
+        "confidence": 0.93,
+        "should_escalate": false,
+        "escalation_reason": "none",
+        "escalation_reasons": "second_opinion:playback_technical",
+        "reply": "Hey! We hear you. Since this involves a specific billing issue, could you DM us your account's username or email? We'll take a look backstage to see what happened.",
+        "judge_overall": 2,
+        "judge_rationale": "Redirects to DM instead of explaining promo eligibility."
+      },
+      {
+        "conv_id": "102225",
+        "customer_text": "how long would it take for a pending charge to be cleared? Made a mistake on a subscription and my card was charged.",
+        "context": "",
+        "intent": "billing_subscription",
+        "pred_intent": "billing_subscription",
+        "confidence": 0.97,
+        "should_escalate": false,
+        "escalation_reason": "none",
+        "escalation_reasons": "",
+        "reply": "Hey there! We can't promise a specific timeline, but we can check the status for you. Could you DM us your account's email address? We'll take a look under the hood",
+        "judge_overall": 2,
+        "judge_rationale": "DM request instead of giving pending charge info."
       },
       {
         "conv_id": "115232",
@@ -496,77 +580,7 @@
         "escalation_reasons": "second_opinion:playback_technical",
         "reply": "Hey! We understand the frustration with the aspect ratio. We don't have specific info to share right now, but hopefully it'll be updated soon. Let us know if there's anything else we can help with!",
         "judge_overall": 2,
-        "judge_rationale": "The reply acknowledges frustration but offers no concrete help or request for details, making it unhelpful."
-      },
-      {
-        "conv_id": "694626",
-        "customer_text": "I have been paying $10.00 for a premium membership since July, and since then, I can't log in to my account. You don't have a phone number or email to reach. I will be contacting my bank to terminate payment if I don't get a response. Please get back to me ASAP!",
-        "context": "",
-        "intent": "billing_subscription",
-        "pred_intent": "account_access",
-        "confidence": 0.94,
-        "should_escalate": true,
-        "escalation_reason": "payment_dispute",
-        "escalation_reasons": "llm:high_frustration;draft_claims_action",
-        "reply": "Hey! We don't have phone support, but we can help here. Since this needs account details, we just sent you a DM. Please check your inbox so we can look into your login issue.",
-        "judge_overall": 3,
-        "judge_rationale": "The reply claims a DM was sent, which hasn't happened, introducing false information; it partially addresses the issue."
-      },
-      {
-        "conv_id": "534619",
-        "customer_text": "@user @user I don't know what's wrong with it. I can't listen to it and I see some people can't do it too.",
-        "context": "Customer: <url>\r\nCustomer: But unfortunately it doesn't work for me. It says \"Sorry, couldn't find that\". Maybe it's not available worldwide. please could you fix it? I wanna listen to this interview\r\nSpotifyCares: Hey there! There might be some restrictions based on your current location, but not your Spotify account\u2019s country. No worries, your feedback matters, and we'll have this passed on to the right folks. Let us know if you have more questions \ud83d\ude42\r\nCustomer: why it's not available worldwide ... @user is a global superstar lol #sad",
-        "intent": "content_catalog",
-        "pred_intent": "content_catalog",
-        "confidence": 0.95,
-        "should_escalate": false,
-        "escalation_reason": "none",
-        "escalation_reasons": "second_opinion:playback_technical",
-        "reply": "Hey! We're sorry you're having trouble. Could you DM us your account's username or email? We'll take a look backstage to see what's going on.",
-        "judge_overall": 3,
-        "judge_rationale": "Asks for a DM to investigate, which is a standard step, but doesn\u2019t directly explain the restriction issue."
-      },
-      {
-        "conv_id": "567985",
-        "customer_text": "Does @user have artist old mixtapes on it or just albums ?",
-        "context": "",
-        "intent": "content_catalog",
-        "pred_intent": "content_catalog",
-        "confidence": 0.97,
-        "should_escalate": false,
-        "escalation_reason": "none",
-        "escalation_reasons": "second_opinion:playback_technical",
-        "reply": "Hey! We usually have a mix of albums, singles, and sometimes older releases. If you're missing specific tracks, could you send us your account's email via DM? We'll take a look under the hood",
-        "judge_overall": 3,
-        "judge_rationale": "The reply is vague about mixtapes and unnecessarily asks for personal info, missing the core answer."
-      },
-      {
-        "conv_id": "2917841",
-        "customer_text": "App isn\u2019t working. Doesn\u2019t matter if I\u2019m on data or WiFi. Restarted my phone and updated. What\u2019s going on?",
-        "context": "",
-        "intent": "playback_technical",
-        "pred_intent": "playback_technical",
-        "confidence": 0.96,
-        "should_escalate": false,
-        "escalation_reason": "none",
-        "escalation_reasons": "",
-        "reply": "Got it. Since you've already restarted and updated, could you DM us your account's email address or username? We'll take a look under the hood",
-        "judge_overall": 3,
-        "judge_rationale": "Requests a DM for further troubleshooting but doesn\u2019t directly address the app\u2011not\u2011working symptom beyond that."
-      },
-      {
-        "conv_id": "2892620",
-        "customer_text": "Hey, I seem to be unable to unfollow a gone playlist. Can you take a look at <url> and tell me what to do?",
-        "context": "",
-        "intent": "content_catalog",
-        "pred_intent": "playback_technical",
-        "confidence": 0.96,
-        "should_escalate": false,
-        "escalation_reason": "none",
-        "escalation_reasons": "",
-        "reply": "Hey there! Can you let us know the iOS and Spotify versions you're using? We'll see what we can suggest",
-        "judge_overall": 3,
-        "judge_rationale": "Asking for app versions is somewhat useful but does not directly address the unfollow problem; still partially helpful."
+        "judge_rationale": "Reply does not ask for device/app info and offers no actionable help."
       },
       {
         "conv_id": "2979775",
@@ -579,8 +593,22 @@
         "escalation_reason": "none",
         "escalation_reasons": "",
         "reply": "Thanks for the update. Since it's happening on both connections, can you DM us your account's email address? We'll take a closer look",
-        "judge_overall": 3,
-        "judge_rationale": "The reply asks for a DM with the account email, which is a standard step, but it doesn\u2019t suggest any immediate troubleshooting for the connectivity issue."
+        "judge_overall": 2,
+        "judge_rationale": "The reply requests the account email, which is unnecessary for a connectivity issue and does not address the problem."
+      },
+      {
+        "conv_id": "2920779",
+        "customer_text": "@user is the only app in my phone that isn\u2019t working right now and all I wanna do is listen to some @user",
+        "context": "",
+        "intent": "playback_technical",
+        "pred_intent": "playback_technical",
+        "confidence": 0.97,
+        "should_escalate": false,
+        "escalation_reason": "none",
+        "escalation_reasons": "",
+        "reply": "We're sorry to hear that! Could you DM us your account's email address and username? We'll take a look backstage",
+        "judge_overall": 2,
+        "judge_rationale": "Asks for private info via DM, not helpful for app issue."
       }
     ]
   }

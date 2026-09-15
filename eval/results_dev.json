@@ -30,8 +30,8 @@
       0.0,
       0.1
     ],
-    "reply_overall_mean": 1.86,
-    "hallucination_rate": 0.2,
+    "reply_overall_mean": 2.16,
+    "hallucination_rate": 0.0,
     "safe_automation_rate": [
       0.0,
       0.0,
@@ -68,8 +68,8 @@
         0.0,
         0.0
       ],
-      "reply_overall_mean": 1.7894736842105263,
-      "hallucination_rate": 0.21052631578947367,
+      "reply_overall_mean": 2.0526315789473686,
+      "hallucination_rate": 0.0,
       "safe_automation_rate": [
         0.0,
         0.0,
@@ -104,12 +104,12 @@
       0.7337499999999996
     ],
     "reply_acceptable": [
-      0.36,
-      0.24,
-      0.48
+      0.44,
+      0.3,
+      0.58
     ],
-    "reply_overall_mean": 2.96,
-    "hallucination_rate": 0.14,
+    "reply_overall_mean": 3.08,
+    "hallucination_rate": 0.02,
     "safe_automation_rate": [
       0.2,
       0.1,
@@ -142,16 +142,16 @@
         0.0
       ],
       "reply_acceptable": [
-        0.2631578947368421,
+        0.3157894736842105,
         0.10526315789473684,
-        0.47368421052631576
+        0.5263157894736842
       ],
-      "reply_overall_mean": 2.473684210526316,
-      "hallucination_rate": 0.15789473684210525,
+      "reply_overall_mean": 2.9473684210526314,
+      "hallucination_rate": 0.0,
       "safe_automation_rate": [
-        0.21052631578947367,
-        0.05263157894736842,
-        0.42105263157894735
+        0.10526315789473684,
+        0.0,
+        0.2631578947368421
       ],
       "unsafe_automation_rate": 0.21052631578947367
     }
@@ -182,16 +182,16 @@
       1.0
     ],
     "reply_acceptable": [
-      0.84,
-      0.74,
-      0.94
+      0.7,
+      0.58,
+      0.82
     ],
-    "reply_overall_mean": 4.1,
-    "hallucination_rate": 0.02,
+    "reply_overall_mean": 3.78,
+    "hallucination_rate": 0.0,
     "safe_automation_rate": [
-      0.34,
-      0.22,
-      0.48
+      0.28,
+      0.16,
+      0.4
     ],
     "unsafe_automation_rate": 0.02,
     "random_stratum_only": {
@@ -220,11 +220,11 @@
         1.0
       ],
       "reply_acceptable": [
-        0.7368421052631579,
-        0.5263157894736842,
-        0.8947368421052632
+        0.631578947368421,
+        0.42105263157894735,
+        0.8421052631578947
       ],
-      "reply_overall_mean": 3.8947368421052633,
+      "reply_overall_mean": 3.526315789473684,
       "hallucination_rate": 0.0,
       "safe_automation_rate": [
         0.2631578947368421,
@@ -238,121 +238,121 @@
     {
       "threshold": 0.0,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.05,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.1,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.15,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.2,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.25,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.3,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.35,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.4,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.45,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.5,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.55,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.6,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.65,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.7,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.75,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.8,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.85,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.9,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {
       "threshold": 0.95,
       "automation_rate": 0.46,
-      "error_rate_among_auto": 0.2608695652173913,
+      "error_rate_among_auto": 0.391304347826087,
       "unsafe_auto_rate": 0.02
     },
     {

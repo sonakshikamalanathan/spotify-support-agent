@@ -1,0 +1,205 @@
+{
+  "cost_model": {
+    "human_writes": 1.0,
+    "human_approves_draft": 0.3,
+    "bad_auto_reply": 3.0,
+    "missed_escalation": 10.0
+  },
+  "max_smoothed_failure": 0.2,
+  "n_test": 157,
+  "auto_intents_chosen_on_dev": [],
+  "dev_per_intent": [
+    {
+      "pred_intent": "playback_technical",
+      "n": 12,
+      "auto_handled": 10,
+      "auto_failures": 4,
+      "missed_escalations": 0,
+      "smoothed_failure_rate": 0.417
+    },
+    {
+      "pred_intent": "billing_subscription",
+      "n": 10,
+      "auto_handled": 5,
+      "auto_failures": 1,
+      "missed_escalations": 0,
+      "smoothed_failure_rate": 0.286
+    },
+    {
+      "pred_intent": "content_catalog",
+      "n": 7,
+      "auto_handled": 3,
+      "auto_failures": 2,
+      "missed_escalations": 0,
+      "smoothed_failure_rate": 0.6
+    },
+    {
+      "pred_intent": "feature_feedback",
+      "n": 6,
+      "auto_handled": 1,
+      "auto_failures": 0,
+      "missed_escalations": 0,
+      "smoothed_failure_rate": 0.333
+    },
+    {
+      "pred_intent": "account_access",
+      "n": 5,
+      "auto_handled": 3,
+      "auto_failures": 2,
+      "missed_escalations": 1,
+      "smoothed_failure_rate": 0.6
+    },
+    {
+      "pred_intent": "account_security",
+      "n": 4,
+      "auto_handled": 0,
+      "auto_failures": 0,
+      "missed_escalations": 0,
+      "smoothed_failure_rate": 0.5
+    },
+    {
+      "pred_intent": "dm_followup",
+      "n": 2,
+      "auto_handled": 0,
+      "auto_failures": 0,
+      "missed_escalations": 0,
+      "smoothed_failure_rate": 0.5
+    },
+    {
+      "pred_intent": "other",
+      "n": 2,
+      "auto_handled": 0,
+      "auto_failures": 0,
+      "missed_escalations": 0,
+      "smoothed_failure_rate": 0.5
+    },
+    {
+      "pred_intent": "thanks_resolved",
+      "n": 2,
+      "auto_handled": 1,
+      "auto_failures": 0,
+      "missed_escalations": 0,
+      "smoothed_failure_rate": 0.333
+    }
+  ],
+  "test_per_intent": [
+    {
+      "pred_intent": "billing_subscription",
+      "n": 35,
+      "auto_handled": 18,
+      "auto_failures": 6,
+      "missed_escalations": 2,
+      "smoothed_failure_rate": 0.35
+    },
+    {
+      "pred_intent": "playback_technical",
+      "n": 28,
+      "auto_handled": 16,
+      "auto_failures": 13,
+      "missed_escalations": 6,
+      "smoothed_failure_rate": 0.778
+    },
+    {
+      "pred_intent": "feature_feedback",
+      "n": 22,
+      "auto_handled": 3,
+      "auto_failures": 1,
+      "missed_escalations": 1,
+      "smoothed_failure_rate": 0.4
+    },
+    {
+      "pred_intent": "thanks_resolved",
+      "n": 15,
+      "auto_handled": 12,
+      "auto_failures": 2,
+      "missed_escalations": 0,
+      "smoothed_failure_rate": 0.214
+    },
+    {
+      "pred_intent": "content_catalog",
+      "n": 15,
+      "auto_handled": 11,
+      "auto_failures": 6,
+      "missed_escalations": 2,
+      "smoothed_failure_rate": 0.538
+    },
+    {
+      "pred_intent": "account_access",
+      "n": 11,
+      "auto_handled": 6,
+      "auto_failures": 3,
+      "missed_escalations": 2,
+      "smoothed_failure_rate": 0.5
+    },
+    {
+      "pred_intent": "account_security",
+      "n": 11,
+      "auto_handled": 0,
+      "auto_failures": 0,
+      "missed_escalations": 0,
+      "smoothed_failure_rate": 0.5
+    },
+    {
+      "pred_intent": "dm_followup",
+      "n": 11,
+      "auto_handled": 3,
+      "auto_failures": 0,
+      "missed_escalations": 0,
+      "smoothed_failure_rate": 0.2
+    },
+    {
+      "pred_intent": "other",
+      "n": 9,
+      "auto_handled": 0,
+      "auto_failures": 0,
+      "missed_escalations": 0,
+      "smoothed_failure_rate": 0.5
+    }
+  ],
+  "test_policies": {
+    "all_human": {
+      "cost_per_100_tickets": 100.0,
+      "sent_without_human": 0.0,
+      "missed_escalations": 0,
+      "bad_replies_sent": 0,
+      "cost_if_missed_escalation_costs": {
+        "5.0": 100.0,
+        "10.0": 100.0,
+        "25.0": 100.0
+      }
+    },
+    "suggest_only": {
+      "cost_per_100_tickets": 67.0,
+      "sent_without_human": 0.0,
+      "missed_escalations": 0,
+      "bad_replies_sent": 0,
+      "cost_if_missed_escalation_costs": {
+        "5.0": 67.0,
+        "10.0": 67.0,
+        "25.0": 67.0
+      }
+    },
+    "auto_everything": {
+      "cost_per_100_tickets": 157.2,
+      "sent_without_human": 0.439,
+      "missed_escalations": 13,
+      "bad_replies_sent": 18,
+      "cost_if_missed_escalation_costs": {
+        "5.0": 115.8,
+        "10.0": 157.2,
+        "25.0": 281.4
+      }
+    },
+    "tiered": {
+      "cost_per_100_tickets": 67.0,
+      "sent_without_human": 0.0,
+      "missed_escalations": 0,
+      "bad_replies_sent": 0,
+      "cost_if_missed_escalation_costs": {
+        "5.0": 67.0,
+        "10.0": 67.0,
+        "25.0": 67.0
+      }
+    }
+  }
+}
